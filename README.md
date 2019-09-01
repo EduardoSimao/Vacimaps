@@ -20,3 +20,9 @@ Instruções para montar o projeto:
     ```bash
     ionic serve --lab
     ```
+
+* Gerar APK
+    * Executar:
+    ```bash
+    ionic cordova build android
+    ```
