@@ -6,49 +6,84 @@
 
   ion-content{
     font-family: 'Souliyo-Unicode', sans-serif;
-    background: url("assets/imgs/globo.png") no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color:  white;
   }
   h1{
-    color: white; padding: 58px 25px 65px 25px; text-align: center; font-size: 40px; font-weight: 100; font-style: normal; line-height: normal;
+    color: #47525E;
+    padding: 0px 25px 20px 25px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    font-style: normal;
+    line-height: normal;
     letter-spacing: 0.5px;
   }
   ion-item{
-    background-color: rgba(255, 255, 255, 0); color: white; align-content: center; width: 270px; margin-left: 30px; margin-bottom: 22px;
+    border: 1px solid #53CED3;
+    border-radius: 50pt;
+    width: 200pt;
+    height: 30pt;
+    background-color: rgba(233, 233, 233, 0.62);
   }
   input::placeholder{
     text-align: center; color: white; font-size: 12px; width: 270px;
   }
-  button{
-    width: 270px; height: 38px; color: #12614C; margin-left: 30px; margin-top: 10px; border-radius: 5px; font-family: roboto; font-size: 16px;
+  .botao-cadastrar{
+    width: 185px;
+    height: 38px;
+    color: #000000;
+    margin-left: 45px;
+    margin-top: 10px;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #53CED3;
   }
   .btn-back{
-    color: white; font-size: 10px; padding-top: 1px; padding-right: 225px;
+    width: 111.25px;
+    height: 38px;
+    color: #fff;
+    margin-left: 81px;
+    margin-top: 10px;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 20px;
+    background-color: #53D35B;
+  }
+  .label-md{
+    margin: 13px 8px 0px 14px;
   }
 </style>
 <ion-content>
-
-  <button ion-button clear class="btn-back" (click)="Voltar()"><< voltar</button>
-
-  <h1>VACIMAPS</h1>
+  <h1>VACIMAPA</h1>
   <form [formGroup]="formulario">
     <ion-list inset>
 
+      <ion-label class="label-home senha">Nome</ion-label>
       <ion-item>
-        <ion-input maxlength="75" type="text" [formControl]="formulario.controls['validNome']" [(ngModel)]="nome" placeholder="nome"></ion-input>
+        <ion-input maxlength="75" type="text" [formControl]="formulario.controls['validNome']" [(ngModel)]="nome"></ion-input>
       </ion-item>
       
+      <ion-label class="label-home senha">E-mail</ion-label>
       <ion-item>
-        <ion-input maxlength="75" type="email" [formControl]="formulario.controls['validEmail']" [(ngModel)]="email" placeholder="e-mail" ></ion-input>
+        <ion-input maxlength="75" type="email" [formControl]="formulario.controls['validEmail']" [(ngModel)]="email"></ion-input>
       </ion-item>
 
+      <ion-label class="label-home senha">Senha</ion-label>
       <ion-item>
-        <ion-input maxlength="20"  type="password" [formControl]="formulario.controls['vaidSenha']"[(ngModel)]="senha" placeholder="senha" ></ion-input>
+        <ion-input maxlength="20"  type="password" [formControl]="formulario.controls['vaidSenha']"[(ngModel)]="senha"></ion-input>
       </ion-item>
+
+      <ion-label class="label-home senha">Repita a senha</ion-label>
+      <ion-item>
+          <ion-input maxlength="20"  type="password" [formControl]="formulario.controls['vaidSenha']"[(ngModel)]="senha"></ion-input>
+        </ion-item>
       <br>
 
-      <button color="light" (click)="doPOST()" [disabled]="!formulario.valid">Cadastrar</button>
+      <button class="botao-cadastrar" (click)="doPOST()" [disabled]="!formulario.valid">Cadastrar</button>
+
+      <button ion-button class="btn-back" (click)="Voltar()">Voltar</button>
     </ion-list>
   </form>
 </ion-content>

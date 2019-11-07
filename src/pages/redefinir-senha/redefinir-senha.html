@@ -6,25 +6,53 @@
 
   ion-content{
     font-family: 'Souliyo-Unicode', sans-serif;
-    background: url("assets/imgs/globo.png") no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color:  white;
   }
   h1{
-    color: white; padding: 110px 25px 65px 25px; text-align: center; font-size: 40px; font-weight: 100; font-style: normal; line-height: normal;
-      letter-spacing: 0.5px;
+    color: #47525E;
+    padding: 0px 25px 20px 25px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
   }
   ion-label{
     color: white; padding-bottom: 5px; font-family: roboto; letter-spacing: 0.5px; margin-left: 30px; 
   }
   ion-item{
-    background-color: rgba(255, 255, 255, 0); color: white; align-content: center; width: 270px; margin-left: 30px; margin-bottom: 22px;
+    border: 1px solid #53CED3;
+    border-radius: 50pt;
+    width: 200pt;
+    height: 30pt;
+    background-color: rgba(233, 233, 233, 0.62);
   }
-  input::placeholder{
-    text-align: center; color: white; font-size: 12px; font-size: 12px; width: 270px;
+  .botao-alterar{
+    width: 185px;
+    height: 38px;
+    color: #000000;
+    margin-left: 45px;
+    margin-top: 10px;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #53CED3;
   }
-  button{
-    width: 270px; height: 38px; color: #12614C; margin-left: 30px; margin-top: 10px; border-radius: 5px; font-family: roboto; font-size: 16px;
+  .btn-voltar{
+    width: 111.25px;
+    height: 38px;
+    color: #fff;
+    margin-left: 81px;
+    margin-top: 10px;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 20px;
+    background-color: #53D35B;
+  }
+  .label-md{
+    margin: 13px 8px 0px 14px;
   }
 
 </style>
@@ -35,19 +63,28 @@
   <form [formGroup]="formulario">
   <ion-list inset>
     <ion-label>
-      Redefinir senha:
+      Alterar senha:
     </ion-label>
     
+    <ion-label>Senha atual</ion-label>
     <ion-item>
-      <ion-input type="password" maxlength="20" [formControl]="formulario.controls['validSenha']" [(ngModel)]="senha" placeholder="Senha"></ion-input>
+      <ion-input type="password" maxlength="20"></ion-input>
+    </ion-item>
+    
+    <ion-label>Nova senha</ion-label>
+    <ion-item>
+      <ion-input type="password" maxlength="20" [formControl]="formulario.controls['validSenha']" [(ngModel)]="senha"></ion-input>
     </ion-item>
   
+    <ion-label>Confirmar nova senha</ion-label>
     <ion-item>
       <ion-input type="password" maxlength="20" [formControl]="formulario.controls['validConfSenha']"[(ngModel)]="confSenha" placeholder="Confirmar Senha"></ion-input>
     </ion-item>
     <br>
 
-    <button color="light" (click)='reset_password()' [disabled]="!formulario.valid">Redefinir</button>
+    <button class="btn-voltar" (click)='reset_password()' [disabled]="!formulario.valid">Alterar</button>
+
+    <button ion-button class="btn-voltar" (click)="Voltar()">Cancelar</button>
   </ion-list>
   </form>
 </ion-content>

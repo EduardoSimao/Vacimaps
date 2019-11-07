@@ -15022,7 +15022,7 @@ ion-list[inset] {
 }
 
 .list-md[inset] {
-  margin: 16px;
+  margin-left: -14px;
   border-radius: 2px;
 }
 
