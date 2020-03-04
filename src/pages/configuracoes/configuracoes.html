@@ -4,30 +4,78 @@
     src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
   }
   body{ 
-    top: 11%; 
+    top: 5%; 
     left: 0%; 
     /*background-color: white; */
     font-family: 'Souliyo-Unicode', sans-serif;
   }
-  ion-card{
-    height: 74%;
-    width: 93%;
-    margin-left: 13px;
-    border-radius: 5px;
-  }
   h1{
-    color: black; text-align: center; font-size: 18px; font-weight: 100; font-style: normal; line-height: normal; padding-top: 0px; padding-bottom: 15px; margin-top: 0.5rem !important;
-  }
+    color: #47525E;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    margin-top: 0.5rem !important;
+    text-transform: uppercase;  }
   #div-config{
-    background-color: #F6F5F5;
     width: 104%;
     height: 38%;
-    margin-left: -5px;
     margin-top: 27px;
-    padding-bottom: 27px;
+    margin-left: 21px;
   }
-  .input-email{
-    text-align: center; font-size: 12px; color: #E7E6E6; top: -23px; padding: 2px; width: 104%; left: -7px; margin-top: 17px;
+  p{
+    font-weight: 600;
+    font-size: 12px;
+    color: #47525E;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+  }
+  #perfil{
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+  #senha{
+    margin-top: -14px;
+  }
+  button{
+    width: 110px;
+    height: 47px;
+    font-weight: 900;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+  .btn-salvar{
+    margin-left: 34%;
+    background-color: #53CED3;
+    color: black;
+    margin-top: 50px;
+  }
+  .btn-cancelar{
+    color: white;
+    background-color: #53D35B;
+    margin-left: 35%;
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+  }
+  ion-icon {
+    font-size: 160px; 
+    vertical-align: auto;
+  }
+  a{
+    color: gray;
+  }
+  ion-item{
+    border: 1px solid #53CED3;
+    border-radius: 50pt;
+    width: 200pt;
+    height: 30pt;
+    background-color: rgba(233, 233, 233, 0.62);
   }
   ion-input{ 
     /* left: 4px; */
@@ -38,50 +86,48 @@
     left: -4px;
   }
   input::placeholder{
-    text-align: center; color: #B3B3B3; font-size: 12px; background-color: #FFFFFF; height: 30px;
+    width: 270px; text-align: center; color: white; font-size: 12px;
   }
-  p{
-    font-size: 12px; color: #C4C4C4;
+  .input-email{
+    text-align: center; font-size: 12px; color: #E7E6E6; top: -23px; padding: 2px; width: 104%; left: -7px; margin-top: 17px;
   }
-  #perfil{
-    padding-top: 5px;
-    padding-left: 5px;
-  }
-  #senha{
-    margin-top: -14px;
-  }
-  .btn-salvar{
-    width: 67px; height: 23px; font-size: 12px; align-items: center; margin-left: 80%; margin-top: 55%; /* margin-right: -33px; margin-bottom: 18px; */ align-content: flex-end; text-transform: inherit; padding-top: 2px; border-radius: 5px; box-shadow: none;
-  }
-  ion-icon {
-    font-size: 160px; 
-    vertical-align: auto;
-  }
-  a{
-    color: gray;
+  .campos{
+    margin-bottom: 36px;
   }
 </style>
 
+<ion-content>
   <body>
-    <ion-card>
-      <ion-card-content>
-        <a (click)="closeModal()"> <ion-icon name="close" style=" cursor: pointer; font-size: 20px; float: right; padding-top: 6px; padding-right: 10px;"></ion-icon></a>
 
-        <h1>Configurações</h1>
+      <h1>VACIMAPS</h1>
+
+        <h1>Alterar senha</h1>
         
         <div id="div-config">
-          <p id="perfil">E-mail</p>
-          <ion-input style="top: -33px" class="input-email" type="email" placeholder="{{ email }}" disabled></ion-input>
+          <div class="campos">
+            <p id="perfil">Senha atual</p>
+            <ion-item>
+              <ion-input style="top: -14px" type="password" [(ngModel)]="senhaAtual" [formControl]="formulario.controls['validarSenha']" ></ion-input>
+            </ion-item>
+          </div>
 
-          <p id="senha">Alterar senha</p>
-            <ion-input style="top: -14px" type="password" [(ngModel)]="senhaAtual" placeholder="Digite a senha atual" [formControl]="formulario.controls['validarSenha']" ></ion-input>
-        
-            <ion-input style="top: -13px" type="password" [(ngModel)]="novasenha"placeholder="Digite a nova senha" [formControl]="formulario.controls['validarNovaSenha']" ></ion-input>
+          <div class="campos">
+            <p id="senha">Nova senha</p>
+            <ion-item>   
+              <ion-input style="top: -13px" type="password" [(ngModel)]="novasenha" [formControl]="formulario.controls['validarNovaSenha']" ></ion-input>
+            </ion-item>
+          </div>
 
-            <ion-input style="top: -10px" type="password" [(ngModel)]="confsenha" placeholder="Confirme a nova senha" [formControl]="formulario.controls['validarConfSenha']" ></ion-input>
+          <div class="campos">
+            <p id="senha">Repita a senha</p>
+            <ion-item>      
+              <ion-input style="top: -10px" type="password" [(ngModel)]="confsenha" [formControl]="formulario.controls['validarConfSenha']" ></ion-input>
+            </ion-item>
+          </div>
         </div>
 
-        <button ion-button class="btn-salvar" (click)="doPut()" [disabled]="!formulario.valid" color="light">Salvar</button>
-      </ion-card-content> 
-    </ion-card>
+        <button ion-button class="btn-salvar" (click)="doPut()" [disabled]="!formulario.valid" color="light">Alterar</button>
+
+        <button ion-button class="btn-cancelar" (click)="closeModal()">Cancelar</button>
   </body>
+</ion-content>
