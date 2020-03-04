@@ -9,13 +9,13 @@
   }
   h1{
     color: #47525E;
-    padding: 70px 25px 0px 25px;
     text-align: center;
-    font-size: 30pt;
+    font-size: 16pt;
     font-weight: 900;
     font-style: normal;
     line-height: normal;
     letter-spacing: 0.5px;
+    margin-top: -5px;
   }
   ion-item{
     border: 1px solid #53CED3;
@@ -42,7 +42,7 @@
   }
   .btn-others{
     color: #47525E;
-    font-size: 15px;
+    font-size: 10px;
     cursor: pointer;
     flex-direction: column;
     text-align: center;
@@ -82,12 +82,21 @@
 .senha{
   margin-top: 17px;
 }
+img{
+  margin-left: 33%;
+  width: 100px;
+  height: auto;
+  margin-top: 10%;
+}
 </style>
 
 
 <ion-content>
 <body>
-  <h1>VACIMAPA</h1>
+  <div class="primeira-div">
+    <img src="assets/imgs/logo.png">
+    <h1>VACIMAPS</h1>
+  </div>
   <form [formGroup]="formulario">
     <ion-list inset>
         <p>Usuário ou senha inválida!</p>
