@@ -5,7 +5,7 @@
   }
   ion-content{
     font-family: 'Souliyo-Unicode', sans-serif;
-    background-color: #F1EEEE;
+    background-color: #97D9DB;
   }
   ion-header{
     background: url("assets/imgs/Header.png") no-repeat;
@@ -42,32 +42,21 @@
   h1{
     padding-top: 50px;
   }
-  ion-searchbar{
-    margin-left: 8px;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    width: 310px;
-    color:#C4C4C4;
-  }
   ion-img{
     width: 100%;
     height: 65%;
-    align-content: center;
-    padding-top: 40px;
     position: relative;
+    top: 99px;
+    background: transparent;
   }
-  p{
-    font-size: 9px;
-    color: #FFFFFF;
-    margin-left: 7px;
-    margin-top: 15px;
+  footer{
+    text-transform: uppercase;
+    color: rgb(0, 0, 0, 0.56);
+    float: right;
+    top: 131px;
+    position: relative;
+    font-size: 8px;
   }
-  .list-md {
-    margin: -1px 0 16px;
-    position: absolute;
-    z-index: 10;
-    width: 90%;
-}
 
 </style>
 
@@ -83,11 +72,6 @@
           </button>
         </ion-header>
         <br>
-      <ion-searchbar placeholder="Digite o nome da cidade" (ionInput)="getCity($event)"></ion-searchbar>
-      <ion-list [hidden]= hiddenCidades>
-        <button (click)="something(c)" ion-item *ngFor="let c of cidades">
-          <ion-option [value] = "c.nome_cidade">{{ c.nome_cidade }} - {{ c.uf_cidade }}</ion-option>
-        </button>
-      </ion-list> 
-        <ion-img src="./assets/imgs/Design.png"></ion-img>
+        <ion-img src="./assets/imgs/Mapa.png"></ion-img>
+        <footer>© 2018 Vacimaps</footer>
   </ion-content>
