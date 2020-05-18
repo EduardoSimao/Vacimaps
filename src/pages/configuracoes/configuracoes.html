@@ -16,7 +16,7 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: 0.5px;
-    margin-top: 38px;
+    margin-top: 43px;
     margin-left: 2px;
   }
     img{
@@ -33,7 +33,9 @@
     width: 104%;
     height: 38%;
     margin-top: 27px;
-    margin-left: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   p{
     font-weight: 600;
@@ -58,16 +60,14 @@
     font-size: 15px;
     text-transform: uppercase;
   }
-  .btn-salvar{
-    margin-left: 34%;
+  .botao-salvar{
     background-color: #53CED3;
     color: black;
     margin-top: 50px;
   }
-  .btn-cancelar{
+  .botao-cancelar{
     color: white;
     background-color: #53D35B;
-    margin-left: 35%;
     margin-top: 26px;
     width: 100px;
     height: 40px;
@@ -101,17 +101,21 @@
   .campos{
     margin-bottom: 36px;
   }
+  .botoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
 
 <ion-content>
   <body>
+    <div class="primeira-div">
+      <img src="assets/imgs/logo.png">
+      <h1>VACIMAPS</h1>
+    </div>
 
-      <div class="primeira-div">
-          <img src="assets/imgs/logo.png">
-          <h1>VACIMAPS</h1>
-      </div>
-
-        <h1>Alterar senha</h1>
+    <h1>Alterar senha</h1>
         
         <div id="div-config">
           <div class="campos">
@@ -136,8 +140,9 @@
           </div>
         </div>
 
-        <button ion-button class="btn-salvar" (click)="doPut()" [disabled]="!formulario.valid" color="light">Alterar</button>
-
-        <button ion-button class="btn-cancelar" (click)="closeModal()">Cancelar</button>
+        <div class="botoes">
+          <button ion-button class="botao-salvar" (click)="doPut()" [disabled]="!formulario.valid" color="light">Alterar</button>
+          <button ion-button class="botao-cancelar" (click)="closeModal()">Cancelar</button>
+        </div>
   </body>
 </ion-content>

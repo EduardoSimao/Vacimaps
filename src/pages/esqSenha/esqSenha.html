@@ -3,12 +3,12 @@
     font-family: Souliyo-Unicode;
     src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
   }
-   
-    ion-content{
-      font-family: 'Souliyo-Unicode', sans-serif;
-      background-color:  white;
-    }
-    h1{
+
+  ion-content{
+    font-family: 'Souliyo-Unicode', sans-serif;
+    background-color:  white;
+  }
+  h1{
     color: #47525E;
     text-align: center;
     font-size: 12pt;
@@ -16,10 +16,10 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: 0.5px;
-    margin-top: 38px;
+    margin-top: 43px;
     margin-left: 2px;
   }
-    img{
+  img{
     width: 35px;
     height: 32px;
     margin-top: 10%;
@@ -29,58 +29,61 @@
     flex-direction: row;
     justify-content: center;
   }
-    h2{
-      margin-left: 27px;
-      margin-top: 29px;
-    }
-     p{
-       color: #47525E; text-align: center; font-size: 10px; font-style: normal; line-height: normal;
-       letter-spacing: 0.9px;
-       font-family: roboto;
-       margin-bottom: -7px;
-       margin-top: 28px;
-     }
-     ion-label{
-      margin-top: 55px;
-      margin-bottom: 0px;
-      margin-left: 17px;
-      color: #47525E;
-     }
-     ion-item{
-      border: 1px solid #53CED3;
-      border-radius: 50pt;
-      width: 200pt;
-      height: 30pt;
-      background-color: rgba(233, 233, 233, 0.62);
-     }
-     input::placeholder{
-       text-align: center; color: white; font-size: 12px; width: 270px;
-     }
-     .botao-enviar{
-      width: 110px;
-      height: 47px;
-      color: #000000;
-      margin-left: 29%;
-      margin-top: 22px;
-      border-radius: 50pt;
-      font-family: roboto;
-      font-size: 15px;
-      text-transform: uppercase;
-      background-color: #53CED3;
-    }
-    .btn-back{
-      width: 100px;
-      height: 40px;
-      color: #fff;
-      margin-left: 81px;
-      margin-top: 26px;
-      border-radius: 50pt;
-      font-family: roboto;
-      font-size: 15px;
-      background-color: #53D35B;
-    }
+  h2{
+    text-align: center;
+    margin-top: 29px;
+  }
+  p{
+    color: #47525E; text-align: center; font-size: 10px; font-style: normal; line-height: normal;
+    letter-spacing: 0.9px;
+    font-family: roboto;
+    margin-bottom: -7px;
+    margin-top: 28px;
+  }
+  ion-label{
+    margin-top: 55px;
+    margin-bottom: 0px;
+    margin-left: 17px;
+    color: #47525E;
+  }
+  ion-item{
+    border: 1px solid #53CED3;
+    border-radius: 50pt;
+    width: 100%;
+    height: 30pt;
+    background-color: rgba(233, 233, 233, 0.62);
+  }
+  input::placeholder{
+    text-align: center; color: white; font-size: 12px; width: 270px;
+  }
+  .botoes-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .botao-enviar{
+    width: 110px;
+    height: 47px;
+    color: #000000;
+    margin-top: 22px;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 15px;
+    text-transform: uppercase;
+    background-color: #53CED3;
+  }
+  .botao-voltar{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    margin-top: 26px;
+    border-radius: 50pt;
+    font-family: roboto;
+    font-size: 15px;
+    background-color: #53D35B;
+  }
    
-   </style>
+</style>
    
    <ion-content>
     <div class="primeira-div">
@@ -98,9 +101,10 @@
             <ion-input type="text" maxlength="75" [(ngModel)]="email" [formControl]="formulario.controls['validEmail']"></ion-input>
         </ion-item>
         <br>
-        <button class="botao-enviar" (click)="forgot_password()" [disabled]="!formulario.valid">Enviar</button>
-        <button ion-button clear class="btn-back" (click)="Voltar()">Voltar</button>
-
+        <div class="botoes-form">
+          <button class="botao-enviar" (click)="forgot_password()" [disabled]="!formulario.valid">Enviar</button>
+          <button ion-button clear class="botao-voltar" (click)="Voltar()">Voltar</button>
+        </div>
     </ion-list>
     </form>
    </ion-content>

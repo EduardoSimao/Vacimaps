@@ -16,13 +16,13 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: 0.5px;
-    margin-top: 38px;
+    margin-top: 43px;
     margin-left: 2px;
   }
   ion-item{
     border: 1px solid #53CED3;
     border-radius: 50pt;
-    width: 200pt;
+    width: 100%;
     height: 30pt;
     background-color: rgba(233, 233, 233, 0.62);
   }
@@ -33,7 +33,6 @@
     width: 110px;
     height: 47px;
     color: #000000;
-    margin-left: 28%;
     margin-top: 10px;
     border-radius: 50pt;
     font-family: roboto;
@@ -41,19 +40,20 @@
     text-transform: uppercase;
     background-color: #53CED3;
   }
-  .btn-back{
-    width: 100px;
+  .botao-voltar{
+    width: 80px;
     height: 40px;
     color: #fff;
-    margin-left: 81px;
-    margin-top: 10px;
+    margin-top: 30px;
     border-radius: 50pt;
     font-family: roboto;
     font-size: 15px;
+    font-weight: 600;
     background-color: #53D35B;
   }
   .label-md{
     margin: 13px 8px 0px 14px;
+    margin-right: 262px;
   }
   img{
     width: 35px;
@@ -64,6 +64,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+  }
+  .list-md{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
   }
 </style>
 <ion-content>
@@ -89,7 +95,7 @@
         <ion-input maxlength="20"  type="password" [formControl]="formulario.controls['vaidSenha']"[(ngModel)]="senha"></ion-input>
       </ion-item>
 
-      <ion-label class="label-home senha">Repita a senha</ion-label>
+      <ion-label class="label-home senha" style="margin-left: 66px;">Repita a senha</ion-label>
       <ion-item>
           <ion-input maxlength="20"  type="password" [formControl]="formulario.controls['vaidSenha']"[(ngModel)]="senha"></ion-input>
         </ion-item>
@@ -97,7 +103,7 @@
 
       <button class="botao-cadastrar" (click)="doPOST()" [disabled]="!formulario.valid">Cadastrar</button>
 
-      <button ion-button class="btn-back" (click)="Voltar()">Voltar</button>
+      <button ion-button class="botao-voltar" (click)="Voltar()">Voltar</button>
     </ion-list>
   </form>
 </ion-content>

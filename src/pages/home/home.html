@@ -20,7 +20,7 @@
   ion-item{
     border: 1px solid #53CED3;
     border-radius: 50pt;
-    width: 200pt;
+    width: 100%;
     height: 30pt;
     background-color: rgba(233, 233, 233, 0.62);
   }
@@ -33,7 +33,6 @@
     background-color: #53CED3 !important;
     color: black;
     font-weight: 900;
-    margin-left: 59pt;
     margin-top: 25px;
     border-radius: 50pt;
     font-family: roboto;
@@ -50,9 +49,12 @@
     width: 100px;
     height: 40px;
   }
+  .botao-novo{
+    margin-left: 65px;
+  }
   p {
-  color: #ea6153;
-  display: none;
+    color: #ea6153;
+    display: none;
   }
   input:invalid + p {
     display: inline
@@ -61,33 +63,41 @@
     margin-top: 8%;
     display: flex;
     flex-direction: row;
+    margin-left: 20px;
   }
   ion-list.list.list-md {
-    /*margin-top: 5%;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
   .label-home {
     font-size: 10pt;
     text-transform: uppercase;
     margin-bottom: 1px;
-    margin-left: 17px;
-}
-.input-cover {
+    margin-right: 240px;
+  }
+  .input-cover {
     border: 1px solid #53CED3;
     border-radius: 50pt;
     width: 176pt;
     height: 30pt;
     background-color: rgba(233, 233, 233, 0.62);
-}
-.senha{
-  margin-top: 17px;
-}
-img{
-  margin-left: 33%;
-  width: 100px;
-  height: auto;
-  margin-top: 10%;
-}
+  }
+  .senha{
+    margin-top: 17px;
+  }
+  img{
+    width: 100px;
+    height: auto;
+    margin-top: 24%;
+  }
+  .primeira-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 </style>
 
 
@@ -114,8 +124,8 @@ img{
     </ion-list>
   </form>
   <div class="div-home">
-    <a class="btn-pass btn-others" (click)="esqSenha()">Esqueci minha senha</a>
-    <a class="btn-new btn-others" (click)="cadastrar()">Novo por aqui?</a>
+    <a class="botao-esqueci btn-others" (click)="esqSenha()">Esqueci minha senha</a>
+    <a class="botao-novo btn-others" (click)="cadastrar()">Novo por aqui?</a>
   </div>
 </body>
 </ion-content> 
