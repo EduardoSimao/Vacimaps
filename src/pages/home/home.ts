@@ -55,12 +55,12 @@ export class HomePage {
         if(res['Mensagem'] == 'Usuario não encontrado'){          
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()    
        
-        }else if(res['Mensagem'] == 'Senha Incorreta!'){
+        }else if(res['Mensagem'] == 'Senha incorreta!'){
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()    
 
         }else{
           localStorage.setItem('token', JSON.stringify(res))
-          this.toast.create({ message: "Bem Vindo!", duration: 3000, position: 'botton' }).present()    
+          this.toast.create({ message: "Bem vindo!", duration: 3000, position: 'botton' }).present()    
           this.appCtrl.getRootNav().setRoot(DashboardPage)
         }
       })

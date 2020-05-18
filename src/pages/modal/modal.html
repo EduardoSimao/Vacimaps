@@ -4,43 +4,50 @@
       src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
     }
     body{
-      top: 11%; 
-      left: 0%; 
-      /*background-color: white; */
+      top: 6%; 
       font-family: 'Souliyo-Unicode', sans-serif;
     }
     ion-card{
-      height: 74%;
-      width: 93%;
-      margin-left: 13px;
-      border-radius: 5px;
+      height: 100%;
+      width: 100%;
+      margin-left: 0;
+    }
+    ion-card-content{
+      padding: 60px;
+      padding-top: 0;
     }
     h1{
-      color: black; /* text-align: center; */ font-size: 18px; font-weight: 100; font-style: normal; line-height: normal; padding-top: 0px; padding-left: 116px;
+      text-transform: uppercase;
+      color: rgba(71, 82, 94, 0.53);
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
     }
     #nome{
-      font-size: 12px; font-weight: 100; font-style: normal; line-height: normal; color: #C4C4C4; margin-top: 8px; margin-left: 5px;
+      font-size: 10px;
+      font-weight: 800;
+      font-style: normal;
+      line-height: normal;
+      color: #47525E;
+      margin-top: 8px;
+      margin-left: 18px;
+      text-transform: uppercase;
     }
     #data{
-      font-size: 12px; font-weight: 100; font-style: normal; line-height: normal; color: #C4C4C4; margin-top: 11px; margin-left: 5px; margin-bottom: 12px;
+      font-size: 10px;
+      font-weight: 800;
+      font-style: normal;
+      line-height: normal;
+      color: #47525E;
+      margin-top: 11px;
+      margin-left: 18px;
+      text-transform: uppercase;
     }
     ion-avatar{
       width: 25px; height: 25px; align-content: center;
     }
     ion-item{
-      background-color: white; color: black; align-content: center; width:210px;
-    }
-    input{
-      color: black; font-size: 16px; font-weight: 100; width:100%; align-content:center;
-    }
-    #div-config{
-      background-color: #F6F5F5;
-      margin: -10px;
-      padding: 2px;
-      margin-top: 10px;
-      margin-right: -8px;
-      margin-left: -10px;
-      padding-bottom: 15px;
+      background-color: white; color: black; align-content: center; width:210px; box-shadow: none; padding-left: 0;
     }
     ion-datetime{
       color: black; font-size: 12px; top: 3px;
@@ -48,14 +55,70 @@
     ion-datetime--padding-start{
       padding: 0px;
     }
-    button{
-      width: 67px; height: 23px; font-size: 12px; align-items: center; margin-left: 15px; margin-top: 67px; margin-right: -7px; margin-bottom: 18px; align-content: flex-end; text-transform: inherit; padding-top: 2px; border-radius: 5px; box-shadow: none;
+    .botao-salvar{
+      width: 67px;
+      height: 23px;
+      font-size: 12px;
+      align-items: center;
+      text-transform: inherit;
+      border-radius: 5px;
+      box-shadow: none;
     }
     a{
       color: gray;
     }
     ion-icon {
       font-size: 160px; vertical-align: auto;
+    }
+    .campos-perfil{
+      color: black;
+      font-size: 14px;
+      font-weight: 900;
+      width: 100%;
+      align-content: center;
+      padding: 0;
+    }
+    .item-inner{
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+    }
+    .botao-alterar{
+      position: absolute;
+      left: 258px;
+      border-radius: 7px;
+      top: 17px;
+    }
+    .icone-alterar{
+      font-size: 27px;
+      color: #53CED3;
+    }
+    .label-md{
+      margin: 0 !important;
+    }
+    .botoes-final{
+      margin-top: 8%;
+      display: flex;
+      flex-direction: row;
+    }
+    .botao-final{
+      color: #47525E;
+      font-size: 10px;
+      cursor: pointer;
+      flex-direction: column;
+      width: 100px;
+      height: 40px;
+    }
+    .botao-sair{
+      margin-left: 65px;
+    }
+    .text-input{
+      margin: 0;
+    }
+    .searchbar-md{
+      padding: 6px 55px;
+      border-radius: 50pt;
+      font-size: 9pt;
+      line-height: 3rem;
     }
   </style>
 
@@ -73,15 +136,35 @@
             
         <div id="div-config">
           <ion-label id ="nome">Nome</ion-label>
-          <ion-item style="width: 98%; padding-top: 0px; padding-left: 0px; margin-top: -9px; margin-left: 2px;">
-            <ion-input type="text" name="Nome"  [(ngModel)]="nome"></ion-input>
+          <ion-item>
+            <ion-input class="campos-perfil" type="text" name="Nome" [(ngModel)]="nome"></ion-input>
           </ion-item>
+
+          <ion-row text-right [hidden]= hiddenCardVacinas>
+            <ion-col>
+              <button class="botao-alterar" ion-button icon-left clear small (click)="editContact(vacina);">
+                <ion-icon class="icone-alterar" name="md-create"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+
+          <ion-label id ="nome">E-mail</ion-label>
+          <ion-item>
+            <ion-input class="campos-perfil" type="email" name="E-mail" [(ngModel)]="email"></ion-input>
+          </ion-item>
+
           <ion-label id="data">Data de Nascimento</ion-label>
-          <ion-item style="width:40%; padding-top: 0px; padding-left: 0px; margin-top: -9px; margin-left: 2px;">
-            <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="dt_nascimento"></ion-datetime>
+          <ion-item>
+            <ion-datetime class="campos-perfil" display-format="DD/MM/YYYY" [(ngModel)]="dt_nascimento"></ion-datetime>
           </ion-item>
+
+          <div class="botoes-final">
+            <a class="botao-final" (click)="alterar()">Alterar senha</a>
+            <a class="botao-sair botao-final" (click)="sair()">Sair da conta</a>
+          </div>
+
         </div>
-        <button ion-button block (click)="save()" style="background:#4FBA6E; float: right;">Salvar</button>
+        <!--<button class="botao-salvar" ion-button block (click)="save()" style="background:#4FBA6E; float: right;">Salvar</button>-->
       </ion-card-content> 
     </ion-card>
   </body>
