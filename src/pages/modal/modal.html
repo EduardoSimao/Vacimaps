@@ -55,15 +55,6 @@
     ion-datetime--padding-start{
       padding: 0px;
     }
-    .botao-salvar{
-      width: 67px;
-      height: 23px;
-      font-size: 12px;
-      align-items: center;
-      text-transform: inherit;
-      border-radius: 5px;
-      box-shadow: none;
-    }
     a{
       color: gray;
     }
@@ -78,7 +69,7 @@
       align-content: center;
       padding: 0;
     }
-    .item-inner{
+    .item-inner--border-color{
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
     }
@@ -120,6 +111,22 @@
       font-size: 9pt;
       line-height: 3rem;
     }
+    .botao-salvar{
+      background-color: #53CED3;
+      color: black;
+      margin-top: 50px;
+      border-radius: 50pt;
+      width: 100px;
+      height: 40px;
+      font-weight: 800;
+      left: 30%;
+      box-shadow: none;
+    }
+    .item-inner{
+      border-bottom-color: white !important;
+      box-shadow: white !important;
+      -webkit-box-shadow: white !important;
+    }
   </style>
 
   <body>
@@ -155,7 +162,7 @@
 
           <ion-label id="data">Data de Nascimento</ion-label>
           <ion-item>
-            <ion-datetime class="campos-perfil" display-format="DD/MM/YYYY" [(ngModel)]="dt_nascimento"></ion-datetime>
+            <ion-datetime class="campos-perfil" display-format="DD/M/YYYY" [(ngModel)]="dt_nascimento"></ion-datetime>
           </ion-item>
 
           <div class="botoes-final">
@@ -163,8 +170,9 @@
             <a class="botao-sair botao-final" (click)="sair()">Sair da conta</a>
           </div>
 
+          <button class="botao-salvar" ion-button block (click)="save()">Salvar</button>
+
         </div>
-        <!--<button class="botao-salvar" ion-button block (click)="save()" style="background:#4FBA6E; float: right;">Salvar</button>-->
       </ion-card-content> 
     </ion-card>
   </body>

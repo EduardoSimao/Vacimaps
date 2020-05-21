@@ -50,7 +50,7 @@
   }
   ion-content{
     font-family: 'Souliyo-Unicode', sans-serif;
-    background-color: #F1EEEE;
+    background-color: white;
   }
   h1{
     color: rgba(71, 82, 94, 0.53);
@@ -160,6 +160,7 @@
     width: 95%;
     height: 30px;
     border: 1px solid #02AEB4;
+    padding: 7px 10px;
   }
   .date-time-md, .datetime-placeholder{
     width: calc((100% - 8px) - 8px);
@@ -218,7 +219,8 @@
     border: 1px solid #02AEB4;
   }
   .text-input-md{
-    margin: 5px !important;
+    margin: 0px !important;
+    padding: 6px 8px;
   }
   .icone-excluir{
     background-color: #F95F62;
@@ -276,29 +278,6 @@
           </div>
         </ion-card>
       </div>
-
-      <!-- Card para editar vacina 
-      <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">
-        <ion-card class="card-nv-vacina">
-          <button class="botao-excluir" ion-button icon-right clear small>
-            <ion-icon class="icone-excluir" name="trash-outline"></ion-icon>
-          </button>
-
-          <ion-label class="nomes-inputs">Nome da Vacina: </ion-label>
-          <ion-input type="text" class="inputs-vacinas"></ion-input>
-          
-          <ion-label class="nomes-inputs" style="margin-top: 25px;">Lote: </ion-label>
-          <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls['vaidarLote']" [(ngModel)]="lote"></ion-input>
-
-          <ion-label class="nomes-inputs">Data: </ion-label>
-          <ion-datetime placeholder="dia/mês/ano" [formControl]="formulario.controls['validarData']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>
-
-          <div class="botoes-final">
-            <button class="botao-salvar" (click)="doPOST()" [disabled]="!formulario.valid" ion-button> Salvar </button>
-            <button class="botao-cancelar" (click)="closeModal()" ion-button> Cancelar </button>
-          </div>
-        </ion-card>
-      </div> -->
 
       <!-- Lista de vacinas cadastradas -->
       <ion-row justify-content-center>

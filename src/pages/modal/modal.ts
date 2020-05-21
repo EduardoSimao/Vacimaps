@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ToastController, App } from 'ionic-
 import { ViewController } from 'ionic-angular';
 import { profileService, User } from './profile.services';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { ConfiguracoesPage } from '../configuracoes/configuracoes'
 
 /**
  * Generated class for the ModalPage page.
@@ -40,6 +41,10 @@ export class ModalPage {
   });
   this.token = JSON.parse(localStorage.getItem('token'));
 }
+
+  alterar(){
+    this.navCtrl.push(ConfiguracoesPage)
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalPage');
