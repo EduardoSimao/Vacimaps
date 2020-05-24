@@ -16,13 +16,7 @@
     flex-direction: row;
   }
   .menu{
-    margin-left: 8%;
-    margin-top: -1px;
-    margin-right: -2px;
     background: transparent;
-    height: 51px;
-    width: 220px;
-    border-left: 0.5px solid rgba(0, 0, 0, 0.3);
     box-shadow:none;
   }
   #label-menu{
@@ -43,11 +37,7 @@
     padding-top: 50px;
   }
   ion-searchbar{
-    margin-left: 8px;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    width: 310px;
-    color:#C4C4C4;
+    width: 600px;
   }
   ion-img{
     width: 100%;
@@ -71,22 +61,26 @@
 </style>
 
   <ion-content padding>
-      <ion-header>
-          <p class="p-header">VACIMAPS</p>
-          <button class="menu" ion-button menuToggle>
-            <ion-label id="label-menu">Olá, {{ nome }}</ion-label>
-            <ion-avatar style="font-size: 25px;">
-              <ion-icon name="ios-contact"></ion-icon>
-            </ion-avatar>
-            <p>v</p>
-          </button>
-        </ion-header>
-        <br>
-      <ion-searchbar placeholder="Digite o nome da cidade" (ionInput)="getCity($event)"></ion-searchbar>
+    <ion-header>
+      <button class="menu" ion-button>
+        <ion-avatar style="font-size: 25px;">
+          <ion-icon name="ios-medkit-outline"></ion-icon>
+        </ion-avatar>
+      </button>
+
+      <ion-searchbar placeholder="Digite o nome da cidade" (ionInput)="getCity($event)" #searchQuery></ion-searchbar>
       <ion-list [hidden]= hiddenCidades>
         <button (click)="something(c)" ion-item *ngFor="let c of cidades">
           <ion-option [value] = "c.nome_cidade">{{ c.nome_cidade }} - {{ c.uf_cidade }}</ion-option>
         </button>
       </ion-list> 
+
+      <button class="menu" (click)="presentPopover($event)" ion-button>
+        <ion-avatar style="font-size: 25px;">
+          <ion-icon name="ios-contact"></ion-icon>
+        </ion-avatar>
+        <p>v</p>
+      </button>
+    </ion-header>
         <ion-img src="./assets/imgs/Design.png"></ion-img>
   </ion-content>

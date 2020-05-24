@@ -6,7 +6,8 @@ import { profileService, User } from '../modal/profile.services';
 import { PopoverController } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
 import { PopoverPage } from '../popover/popover';
-
+import { ViewChild } from '@angular/core';
+import { Searchbar } from 'ionic-angular';
 
 /**
  * Generated class for the Tab1Page page.
@@ -21,6 +22,7 @@ import { PopoverPage } from '../popover/popover';
   templateUrl: 'tab1.html',
   providers: [Tab1Service, profileService]
 })
+
 export class Tab1Page {
 
   cidades: any;
@@ -28,6 +30,7 @@ export class Tab1Page {
   hiddenCidades: Boolean;
   selectOptions;
   nome: string;
+  @ViewChild('searchQuery') searchbar: Searchbar;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -57,6 +60,9 @@ export class Tab1Page {
   }
 
   something(cidade){
+    // this.hiddenCidades = true;
+    this.searchbar.clearInput(null);
+    
     var modalcidade = this.cityModal.create ('CidadeModalPage',{ 
       nome_cidade: cidade.nome_cidade,
       uf_cidade: cidade.uf_cidade,
@@ -86,8 +92,10 @@ export class Tab1Page {
     if (val && val.trim() != '') {
       this.cidades = this.cidades.filter((cidade) => {        
         return (
-          cidade.nome_cidade.toLowerCase().indexOf(val.toLowerCase()) > -1 
+          cidade.nome_cidade.toLowerCase().indexOf(val.toLowerCase()) > -1
+           
       );
+      
       })
     }
   }
