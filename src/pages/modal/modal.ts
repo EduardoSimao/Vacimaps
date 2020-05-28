@@ -3,7 +3,10 @@ import { IonicPage, NavController, NavParams,ToastController, App } from 'ionic-
 import { ViewController } from 'ionic-angular';
 import { profileService, User } from './profile.services';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { ConfiguracoesPage } from '../configuracoes/configuracoes'
+import { HomePage } from '../home/home';
+import { Tab1Page } from '../tab1/tab1';
+import { Tab2Page } from '../tab2/tab2';
+import { ConfiguracoesPage } from '../configuracoes/configuracoes';
 
 /**
  * Generated class for the ModalPage page.
@@ -42,16 +45,25 @@ export class ModalPage {
   this.token = JSON.parse(localStorage.getItem('token'));
 }
 
+  dash(){
+    this.navCtrl.push(Tab1Page);
+  }
+
+  vacinas(){
+    this.navCtrl.push(Tab2Page);
+  }
+
   alterar(){
-    this.navCtrl.push(ConfiguracoesPage)
+    this.navCtrl.push(ConfiguracoesPage);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalPage');
   }
 
-  public closeModal(){
-    this.viewCtrl.dismiss();
+  public Sair () {
+    localStorage.removeItem('token');
+    this.appCtrl.getRootNav().setRoot(HomePage);
   }
 
   save() {

@@ -8,7 +8,8 @@ import { DashboardPage } from '../dashboard/dashboard';
 import { PopoverPage } from '../popover/popover';
 import { ViewChild } from '@angular/core';
 import { Searchbar } from 'ionic-angular';
-
+import { Tab2Page } from '../tab2/tab2';
+ 
 /**
  * Generated class for the Tab1Page page.
  *
@@ -50,6 +51,10 @@ export class Tab1Page {
      this.hiddenCidades = true;
       
   } 
+
+  vacinas(){
+    this.navCtrl.push(Tab2Page);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Tab1Page');

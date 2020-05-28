@@ -2,9 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 
 import { ModalController, App } from 'ionic-angular';
-import { Tab2Page } from './../tab2/tab2';
-import { Tab1Page } from './../tab1/tab1';
-import { TabsPage } from './../tabs/tabs';
 import { HomePage } from '../home/home';
 
 export interface PageInterface {

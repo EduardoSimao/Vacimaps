@@ -5,10 +5,10 @@ webpackJsonp([3],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CidadeModalPageModule", function() { return CidadeModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfiguracoesPageModule", function() { return ConfiguracoesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cidade_modal__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configuracoes__ = __webpack_require__(300);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var CidadeModalPageModule = /** @class */ (function () {
-    function CidadeModalPageModule() {
+var ConfiguracoesPageModule = /** @class */ (function () {
+    function ConfiguracoesPageModule() {
     }
-    CidadeModalPageModule = __decorate([
+    ConfiguracoesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__cidade_modal__["a" /* CidadeModalPage */],
+                __WEBPACK_IMPORTED_MODULE_2__configuracoes__["a" /* ConfiguracoesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__cidade_modal__["a" /* CidadeModalPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__configuracoes__["a" /* ConfiguracoesPage */]),
             ],
         })
-    ], CidadeModalPageModule);
-    return CidadeModalPageModule;
+    ], ConfiguracoesPageModule);
+    return ConfiguracoesPageModule;
 }());
 
-//# sourceMappingURL=cidade-modal.module.js.map
+//# sourceMappingURL=configuracoes.module.js.map
 
 /***/ }),
 
@@ -42,9 +42,12 @@ var CidadeModalPageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CidadeModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracoesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_profile_services__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,60 +60,79 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the CidadeModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var CidadeModalPage = /** @class */ (function () {
-    function CidadeModalPage(navCtrl, navParams, viewCtrl) {
+
+
+
+var ConfiguracoesPage = /** @class */ (function () {
+    function ConfiguracoesPage(navCtrl, navParams, formBuilder, profileService, toast, http, viewCtrl) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.profileService = profileService;
+        this.toast = toast;
+        this.http = http;
         this.viewCtrl = viewCtrl;
-        if (this.navParams.data.nome_cidade &&
-            this.navParams.data.uf_cidade) {
-            this.nome_cidade = this.navParams.data.nome_cidade;
-            this.uf_cidade = this.navParams.data.uf_cidade;
-        }
-        this.cardDengue = true;
-        this.cardLep = true;
-        this.hiddentxt = false;
-        this.propBtn1 = "colunas2";
-        this.propBtn2 = "colunas2";
+        this.API_URL = 'https://vacimaps-app.herokuapp.com';
+        this.profileService.getUser().subscribe(function (usuario) {
+            _this.email = usuario.email;
+        });
+        this.formulario = this.formBuilder.group({
+            validarSenha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            validarNovaSenha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+            validarConfSenha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
+        });
+        this.token = JSON.parse(localStorage.getItem('token'));
     }
-    CidadeModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad CidadeModalPage');
+    ConfiguracoesPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ConfiguracoesPage');
     };
-    CidadeModalPage.prototype.closeModal = function () {
+    ConfiguracoesPage.prototype.closeModal = function () {
         this.viewCtrl.dismiss();
     };
-    CidadeModalPage.prototype.showDengue = function () {
-        this.propBtn1 = "colunas2";
-        this.propBtn2 = "colunas1";
-        this.hiddentxt = true;
-        this.cardLep = true;
-        this.cardDengue = false;
+    ConfiguracoesPage.prototype.doPut = function () {
+        var _this = this;
+        console.log("POST");
+        var url = this.API_URL + "/change_password";
+        this.datajson = {
+            senha_atual: this.senhaAtual,
+            nova_senha: this.novasenha,
+        };
+        console.log(this.datajson);
+        if (this.novasenha == this.confsenha) {
+            this.http
+                .put(url, this.datajson, { headers: new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]({ 'token': this.token.token }) })
+                .subscribe(function (res) {
+                if (res['Mensagem'] == 'Senha alterada com sucesso!') {
+                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
+                    _this.closeModal();
+                }
+                else {
+                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
+                }
+            });
+        }
+        else {
+            this.toast.create({ message: "Senhas Diferentes!", duration: 3000, position: 'botton' }).present();
+        }
     };
-    CidadeModalPage.prototype.showLep = function () {
-        this.propBtn1 = "colunas1";
-        this.propBtn2 = "colunas2";
-        this.hiddentxt = true;
-        this.cardLep = false;
-        this.cardDengue = true;
-    };
-    CidadeModalPage = __decorate([
+    ConfiguracoesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-cidade-modal',template:/*ion-inline-start:"C:\Users\User\Documents\Vacimaps\src\pages\cidade-modal\cidade-modal.html"*/'<!--\n\n  Generated template for the CidadeModalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<style>\n\n  @font-face {\n\n    font-family: Souliyo-Unicode;\n\n    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n\n  }\n\n  ion-content{\n\n    font-family: \'Souliyo-Unicode\', sans-serif;\n\n    background-color: #97D9DB;\n\n    height: 618px;\n\n    top: 49px\n\n  }\n\n  body{\n\n    height: 93%;\n\n    width: 93%;\n\n    border-radius: 5px;\n\n    top: 3%;\n\n    left: 4%;\n\n    background-color: white;\n\n  }\n\n  h1{\n\n    color: #47525E;\n\n    text-align: center;\n\n    font-size: 18px;\n\n    font-weight: 900;\n\n    text-transform: uppercase;\n\n  }\n\n  .modal{\n\n    float: right;\n\n    color: black;\n\n    font-size: 20pt;\n\n    padding-top: 10px;\n\n    padding-right: 15px;\n\n  }\n\n  ion-list{\n\n    width: 100%;\n\n    background-color: #F6F5F5;\n\n  }\n\n  ion-label{\n\n    font-size: 12px;\n\n    text-transform: uppercase;\n\n    color: #47525E;\n\n  }\n\n  .letrinha{\n\n    font-size: 7px; color: #000000; margin-top: 0px;\n\n  }\n\n  .letrinha2{\n\n    font-size: 7px;\n\n    color: #47525E;\n\n    margin-top: 0;\n\n    text-transform: uppercase;\n\n  }\n\n  .sim-nao{\n\n    background-color: #F95F62;\n\n    border-radius: 4pt;\n\n    color: white;\n\n    text-transform: uppercase;\n\n    font-weight: 900;\n\n    width: 30pt;\n\n    height: 15pt;\n\n    font-size: 10px;\n\n    text-align: center;\n\n    padding-top: 4px;\n\n  }\n\n  .doenca{\n\n    background-color: #909090;\n\n    border-radius: 4pt;\n\n    color: white;\n\n    text-transform: uppercase;\n\n    font-weight: 900;\n\n    width: 40pt;\n\n    height: 15pt;\n\n    padding-top: 4px;\n\n    font-size: 10px;\n\n    text-align: center;\n\n    margin-bottom: 1px;\n\n  }\n\n  .colunas1{\n\n    background-color: #909090;\n\n    color: white;\n\n    font-weight: 900;\n\n    text-transform: uppercase;\n\n    padding-top: 3px;\n\n    height: 15pt;\n\n    font-size: 10px;\n\n    border-radius: 4pt;\n\n    text-align: center;\n\n  }\n\n  .colunas2{\n\n    background-color: #53D35B;\n\n    color: white;\n\n    font-weight: 900;\n\n    text-transform: uppercase;\n\n    height: 15pt;\n\n    font-size: 10px;\n\n    border-radius: 4pt;\n\n    margin-left: 10px;\n\n    text-align: center;\n\n    padding-top: 4px;\n\n    margin-bottom: 4px;\n\n    margin-right: 10px;\n\n  }\n\n  .dengue{\n\n    width: 40pt;\n\n  }\n\n  .leptospirose{\n\n    width: 70pt;\n\n  }\n\n  .linhas{\n\n    display: flex;\n\n    flex-direction: row;\n\n    width: 210px;\n\n  }\n\n  .linhas-2{\n\n    display: flex;\n\n    flex-direction: column;\n\n    align-items: center;\n\n  }\n\n  .paragrafo-doencas{\n\n    font-size: 10px;\n\n  }\n\n  .div-doencas{\n\n    display: flex;\n\n    flex-direction: column;\n\n    padding: 0px 25px;\n\n  }\n\n  .titulo-doencas-endemicas{\n\n    text-align: center;\n\n    font-weight: 900;\n\n    margin-bottom: 0;\n\n  }\n\n  .botoes-doencas-endemicas{\n\n    display: flex;\n\n    flex-direction: row;\n\n  }\n\n  .card-content-md{\n\n    border: 1px solid #53CED3;\n\n    padding: 6px;\n\n  }\n\n</style>\n\n\n\n<ion-content>\n\n\n\n<body>\n\n  <a class="modal" (click)="closeModal()"> X</a>\n\n\n\n  <h1>{{ nome_cidade }} - {{ uf_cidade }}</h1>\n\n\n\n    <div class="div-doencas">\n\n\n\n      <div class="linhas">\n\n        <ion-label class="">Vacinação obrigatória:</ion-label> \n\n        <p class="sim-nao">Não</p>\n\n      </div>\n\n\n\n      <div class="linhas">\n\n        <ion-label class="">Vacinação sugerida:</ion-label>\n\n        <div class="linhas-2">\n\n          <p class="doenca">Dengue</p>\n\n          <p class="letrinha">Pendente</p>\n\n        </div>\n\n      </div>\n\n\n\n\n\n      <div class="bloco-doencas">\n\n        <ion-label class="titulo-doencas-endemicas">Doenças endemicas da região</ion-label>\n\n\n\n        <div class="botoes-doencas-endemicas">\n\n          <p class="{{ propBtn1 }} dengue" (click) = \'showDengue()\'>Dengue</p>\n\n          <p class="{{ propBtn2 }} leptospirose" (click) = \'showLep()\'>Leptospirose</p>\n\n        </div>\n\n\n\n        <p class="letrinha2" [hidden] = hiddentxt>Clique na doença para ter mais informações</p>\n\n      </div>\n\n      \n\n      <ion-card  [hidden]= cardLep>\n\n        <ion-card-content>\n\n          <p class="paragrafo-doencas">\n\n            <b>Profilaxia e recomendações:</b> evite o contato com água ou lama de enchentes ou esgotos, ou qualquer outro que possa estar contaminado pela urina dos ratos. Procure o posto de saúde mais próximo em caso de suspeita de contaminação. <br><br>\n\n            <b>Sinais e sintomas:</b> o período de incubação da doença varia de 1 a 30 dias, sendo mais frequente entre 5 a 14 dias. <br><br>\n\n            <b>Fase precoce (leptospirêmica):</b> Febre abrupta; Dores de cabeça; Dores e desconforto nos músculos. <br><br>\n\n            <b>Fase tardia (fase imune):</b> Ictericia (pele amarelada ou alaranjada); Insuficiência renal; Hemorragia (principalmente pulmonar).\n\n          </p>\n\n        </ion-card-content>\n\n      </ion-card>\n\n\n\n      <ion-card  [hidden]= cardDengue>\n\n        <ion-card-content>\n\n          <p class="paragrafo-doencas">\n\n              A dengue é uma doença causada por um vírus e transmitida por um mosquito denominado Aedes aegypti, com 3 a 5 dias de incubação. <br><br>\n\n              <b>Profilaxia e recomendações:</b> uso de repelente é indispensável para evitar a doença, sendo alguns específicos para este. Deve-se tomar cuidado, principalmente, no verão. Evitar antitérmicos que contenham ácido acetilsalicílico e antiinflamatórios. Em caso de suspeita da doença, procure o posto médico mais próximo. <br> <br>\n\n              <b>Sinais e sintomas:</b> Febre alta; Cefaleia; Dor retroorbitária; Mialgia; Artralgia; Náuseas e vômitos; Diarreia; Exantema; Manifestações hemorrágicas.\n\n          </p>\n\n        </ion-card-content>\n\n      </ion-card>\n\n    </div>\n\n  \n\n</body>\n\n</ion-content>  '/*ion-inline-end:"C:\Users\User\Documents\Vacimaps\src\pages\cidade-modal\cidade-modal.html"*/,
+            selector: 'page-configuracoes',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/configuracoes/configuracoes.html"*/'<style>\n  @font-face {\n    font-family: Souliyo-Unicode;\n    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n  }\n  body{ \n    left: 0%; \n    /*background-color: white; */\n    font-family: \'Souliyo-Unicode\', sans-serif;\n  }\n  h1{\n    color: #47525E;\n    text-align: center;\n    font-size: 12pt;\n    font-weight: 900;\n    font-style: normal;\n    line-height: normal;\n    letter-spacing: 0.5px;\n    margin-top: 43px;\n    margin-left: 2px;\n  }\n  img{\n    width: 35px;\n    height: 32px;\n    margin-top: 10%;\n  }\n  .primeira-div{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n  }\n  #div-config{\n    width: 104%;\n    height: 38%;\n    margin-top: 27px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  p{\n    font-weight: 600;\n    font-size: 12px;\n    color: #47525E;\n    margin-bottom: 1px;\n    text-transform: uppercase;\n    padding-left: 20px;\n  }\n  #perfil{\n    padding-top: 5px;\n    padding-left: 19px;\n  }\n  #senha{\n    margin-top: -14px;\n  }\n  button{\n    width: 110px;\n    height: 47px;\n    font-weight: 900;\n    border-radius: 50pt;\n    font-family: roboto;\n    font-size: 15px;\n    text-transform: uppercase;\n  }\n  .botao-salvar{\n    background-color: #53CED3;\n    color: black;\n    margin-top: 50px;\n  }\n  .botao-cancelar{\n    color: white;\n    background-color: #53D35B;\n    margin-top: 26px;\n    width: 100px;\n    height: 40px;\n  }\n  ion-icon {\n    font-size: 160px; \n    vertical-align: auto;\n  }\n  a{\n    color: gray;\n  }\n  ion-item{\n    border: 1px solid #53CED3;\n    border-radius: 50pt;\n    width: 200pt;\n    height: 30pt;\n    background-color: rgba(233, 233, 233, 0.62);\n  }\n  input::placeholder{\n    width: 270px; text-align: center; color: white; font-size: 12px;\n  }\n  .input-email{\n    text-align: center; font-size: 12px; color: #E7E6E6; top: -23px; padding: 2px; width: 104%; left: -7px; margin-top: 17px;\n  }\n  .campos{\n    margin-bottom: 36px;\n  }\n  .botoes{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n</style>\n\n<ion-content>\n  <body>\n    <div class="primeira-div">\n      <img src="assets/imgs/logo.png">\n      <h1>VACIMAPS</h1>\n    </div>\n\n    <h1>Alterar senha</h1>\n        \n        <div id="div-config">\n          <div class="campos">\n            <p id="perfil">Senha atual</p>\n            <ion-item>\n              <ion-input type="password" [(ngModel)]="senhaAtual" [formControl]="formulario.controls[\'validarSenha\']" ></ion-input>\n            </ion-item>\n          </div>\n\n          <div class="campos">\n            <p id="senha">Nova senha</p>\n            <ion-item>   \n              <ion-input type="password" [(ngModel)]="novasenha" [formControl]="formulario.controls[\'validarNovaSenha\']" ></ion-input>\n            </ion-item>\n          </div>\n\n          <div class="campos">\n            <p id="senha">Repita a senha</p>\n            <ion-item>      \n              <ion-input type="password" [(ngModel)]="confsenha" [formControl]="formulario.controls[\'validarConfSenha\']" ></ion-input>\n            </ion-item>\n          </div>\n        </div>\n\n        <div class="botoes">\n          <button ion-button class="botao-salvar" (click)="doPut()" [disabled]="!formulario.valid" color="light">Alterar</button>\n          <button ion-button class="botao-cancelar" (click)="closeModal()">Cancelar</button>\n        </div>\n  </body>\n</ion-content>'/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/configuracoes/configuracoes.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_2__modal_profile_services__["a" /* profileService */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_2__modal_profile_services__["a" /* profileService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
-    ], CidadeModalPage);
-    return CidadeModalPage;
+    ], ConfiguracoesPage);
+    return ConfiguracoesPage;
 }());
 
-//# sourceMappingURL=cidade-modal.js.map
+//# sourceMappingURL=configuracoes.js.map
 
 /***/ })
 

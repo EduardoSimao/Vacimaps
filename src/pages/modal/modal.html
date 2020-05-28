@@ -3,8 +3,28 @@
       font-family: Souliyo-Unicode;
       src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
     }
+    ion-header{
+      background-color: white;
+      background-size: cover;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+    }
+    .menu{
+      background: transparent;
+      box-shadow: none;
+      height: 49px;
+      padding: 2px;
+    }
+    #label-menu{
+      font-size: 11px;
+      text-transform: capitalize;
+      margin-left: -8px;
+      color: #FFFFFF;
+    }
     body{
-      top: 6%; 
+      top: 0; 
       font-family: 'Souliyo-Unicode', sans-serif;
     }
     ion-card{
@@ -14,9 +34,17 @@
     }
     ion-card-content{
       padding: 60px;
-      padding-top: 0;
+      padding-top: 45px;
     }
     h1{
+      text-align: center;
+      color: #47525E;
+      font-size: 13pt;
+      font-weight: 900;
+      margin-top: 16px;
+      margin-left: 10px;
+    }
+    h3{
       text-transform: uppercase;
       color: rgba(71, 82, 94, 0.53);
       font-size: 12px;
@@ -43,11 +71,11 @@
       margin-left: 18px;
       text-transform: uppercase;
     }
-    ion-avatar{
-      width: 25px; height: 25px; align-content: center;
-    }
     ion-item{
       background-color: white; color: black; align-content: center; width:210px; box-shadow: none; padding-left: 0;
+      border-bottom-color: transparent !important;
+      -webkit-box-shadow: transparent !important;
+      box-shadow: none !important;
     }
     ion-datetime{
       color: black; font-size: 12px; top: 3px;
@@ -57,9 +85,6 @@
     }
     a{
       color: gray;
-    }
-    ion-icon {
-      font-size: 160px; vertical-align: auto;
     }
     .campos-perfil{
       color: black;
@@ -105,12 +130,6 @@
     .text-input{
       margin: 0;
     }
-    .searchbar-md{
-      padding: 6px 55px;
-      border-radius: 50pt;
-      font-size: 9pt;
-      line-height: 3rem;
-    }
     .botao-salvar{
       background-color: #53CED3;
       color: black;
@@ -122,22 +141,37 @@
       left: 30%;
       box-shadow: none;
     }
-    .item-inner{
-      border-bottom-color: white !important;
-      box-shadow: white !important;
-      -webkit-box-shadow: white !important;
-    }
-  </style>
+</style>
 
   <body>
+    <ion-header>
+      <button class="menu" (click)="vacinas()" ion-button>
+        <ion-avatar style="font-size: 25px; background-color: #53D35B; border-radius: 50pt; padding: 7px 10px; margin-bottom: 6px;">
+          <ion-icon name="ios-map-outline"></ion-icon>
+        </ion-avatar>
+      </button>
+
+      <button class="menu" (click)="dash()" ion-button>
+        <ion-avatar style="font-size: 25px; background-color: #53CED3; border-radius: 50pt; padding: 7px 10px; margin-bottom: 6px;">
+          <ion-icon name="ios-medkit-outline"></ion-icon>
+        </ion-avatar>
+      </button>
+  
+      <h1>Olá, {{ nome }}!</h1>
+  
+      <ion-avatar class="menu" style="font-size: 35px; color: black; margin-bottom: 6px; right: 5px; position: absolute;">
+        <ion-icon name="ios-contact"></ion-icon>
+      </ion-avatar>
+    </ion-header>
+    
     <ion-card>
       <ion-card-content>
-        <a (click)="closeModal()"> <ion-icon name="close" style="font-size: 20px; float: right; padding-top: 0px; padding-right: 0px;"></ion-icon></a>
-
-        <h1>Meu Perfil</h1>
+        <h3>Meu Perfil</h3>
         <ion-row>
           <ion-col text-center>
-            <ion-icon name="ios-contact"></ion-icon>
+            <ion-avatar style="align-content: center; font-size: 160px;">
+              <ion-icon name="ios-contact"></ion-icon>
+            </ion-avatar>
           </ion-col>
         </ion-row>
             
@@ -167,7 +201,7 @@
 
           <div class="botoes-final">
             <a class="botao-final" (click)="alterar()">Alterar senha</a>
-            <a class="botao-sair botao-final" (click)="sair()">Sair da conta</a>
+            <a class="botao-sair botao-final" (click)="Sair()">Sair da conta</a>
           </div>
 
           <button class="botao-salvar" ion-button block (click)="save()">Salvar</button>

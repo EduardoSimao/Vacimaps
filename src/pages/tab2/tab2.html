@@ -4,7 +4,7 @@
     src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
   }
   ion-header{
-    background: url("assets/imgs/Header.png") no-repeat;
+    background-color: white;
     background-size: cover;
     width: 100%;
     height: 50px;
@@ -12,20 +12,9 @@
     flex-direction: row;
   }
   .menu{
-    margin-left: 8%;
-    margin-top: -1px;
-    margin-right: -2px;
     background: transparent;
-    height: 51px;
-    width: 220px;
-    border-left: 0.5px solid rgba(0, 0, 0, 0.3);
-    box-shadow:none;
-  }
-  .p-menu{
-    font-size: 9px;
-    color: #FFFFFF;
-    margin-left: 7px;
-    margin-top: 15px;
+    box-shadow: none;
+    height: 49px;
   }
   #label-menu{
     font-size: 11px;
@@ -40,14 +29,6 @@
     margin-bottom: 1px;
     text-transform: uppercase;
   }
-  .p-header{
-    color: white;
-    font-size: 18px;
-    margin-left: 50px;
-    margin-top: 15px;
-    letter-spacing: 0.5px;
-    font-family: 'Souliyo-Unicode', sans-serif;
-  }
   ion-content{
     font-family: 'Souliyo-Unicode', sans-serif;
     background-color: white;
@@ -60,14 +41,6 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-  }
-  .card-nv-vacina{
-    background: #97D9DB;
-    width: 330px;
-    height: 420px;
-    border-radius: 3px;
-    box-shadow: none !important;
-    padding: 40px 15px;
   }
   .minhavacina{
     background: #53CED3;
@@ -98,13 +71,6 @@
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-  }
-  ion-searchbar{
-    margin-left: 6px;
-    margin-top: 25%;
-    margin-bottom: 10px;
-    width: 310px;
-    color:#C4C4C4;
   }
   .row{
     -webkit-box-pack: center !important;
@@ -182,42 +148,6 @@
     left: 287px;
     border-radius: 7px;
   }
-  .botoes-final{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .botao-salvar{
-    width: 110px;
-    height: 47px;
-    color: white;
-    border-radius: 50pt;
-    font-family: roboto;
-    font-size: 15px;
-    text-transform: uppercase;
-    background-color: #53D35B;
-    margin-top: 40px;
-    font-weight: bolder;
-  }
-  .botao-cancelar{
-    width: 100px;
-    height: 37px;
-    color: #97D9DB;
-    margin-top: 20px;
-    border-radius: 50pt;
-    font-family: roboto;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: white;
-    margin-bottom: 24px;
-  }
-  .nomes-inputs{
-    font-size: 10px;
-    font-weight: 550;
-  }
-  .inputs-vacinas{
-    border: 1px solid #02AEB4;
-  }
   .text-input-md{
     margin: 0px !important;
     padding: 6px 8px;
@@ -233,51 +163,34 @@
 
 <ion-content>
   <ion-header>
-    <p class="p-header">VACIMAPS</p>
-    <button class="menu" (click)="presentPopover($event)" ion-button>
-      <ion-label id="label-menu">Olá, {{ nome }}</ion-label>
-      <ion-avatar style="font-size: 25px;">
-        <ion-icon name="ios-contact"></ion-icon>
+    <button class="menu" ion-button (click)="dash()">
+      <ion-avatar style="font-size: 25px; background-color: #53D35B; border-radius: 50pt; padding: 7px 10px; margin-bottom: 6px;">
+        <ion-icon name="ios-map-outline"></ion-icon>
       </ion-avatar>
-      <p class="p-menu">v</p>
     </button>
+
+    <ion-searchbar placeholder="Digite o nome da vacina" (ionInput)="getCity($event)" #searchQuery></ion-searchbar>
+      <ion-list [hidden]= hiddenCidades>
+        <button (click)="something(c)" ion-item *ngFor="let c of cidades">
+          <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>
+        </button>
+      </ion-list> 
+
+      <button class="menu" (click)="presentPopover($event)" ion-button>
+        <ion-avatar style="font-size: 30px; color: black;">
+          <ion-icon name="ios-contact"></ion-icon>
+        </ion-avatar>
+      </button>
   </ion-header>
   <ion-grid>
     <div class="content">
-      <!--<ion-row justify-content-center>
-        <ion-searchbar class="search-vacina" placeholder="Digite o nome da vacina" (ionInput)="getVacina($event)"></ion-searchbar>
-        <ion-list [hidden]= hiddenVacinas>
-          <button (click)="editContact(vacina);" ion-item *ngFor="let vacina of vacinas">
-            <ion-option  [value] = "vacina.vacina">{{ vacina.vacina }}</ion-option>
-          </button>
-        </ion-list>           
-      </ion-row>-->
       
       <h1>Minhas Vacinas</h1>
       <ion-row justify-content-end>
-        <button class="adc-vacina" (click)="ModalVacina()" ion-button>
+        <button class="adc-vacina" (click)="editVacinas()" ion-button>
           <ion-icon class="addvacina" name="add-circle"></ion-icon>
         </button>
       </ion-row>
-
-      <!-- Card para cadastrar vacina -->
-      <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">
-        <ion-card class="card-nv-vacina">
-          <ion-label class="nomes-inputs">Nome da Vacina: </ion-label>
-          <ion-input type="text" class="inputs-vacinas"></ion-input>
-            
-          <ion-label class="nomes-inputs">Lote: </ion-label>
-          <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls['vaidarLote']" [(ngModel)]="lote"></ion-input>
-
-          <ion-label class="nomes-inputs">Data: </ion-label>
-          <ion-datetime [formControl]="formulario.controls['validarData']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>
-
-          <div class="botoes-final">
-            <button class="botao-salvar" (click)="doPOST()" [disabled]="!formulario.valid" ion-button> Salvar </button>
-             <button class="botao-cancelar" (click)="closeModal()" ion-button> Cancelar </button>
-          </div>
-        </ion-card>
-      </div>
 
       <!-- Lista de vacinas cadastradas -->
       <ion-row justify-content-center>
