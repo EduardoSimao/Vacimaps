@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 import { profileService, User } from '../modal/profile.services';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
@@ -17,7 +17,6 @@ export class ConfiguracoesPage {
   novasenha: String;
   senhaAtual: String;
   confsenha: String;
-  private formulario: FormGroup;
   private API_URL = 'https://vacimaps-app.herokuapp.com'
   datajson;
   token;

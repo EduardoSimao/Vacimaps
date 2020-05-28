@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
-import { profileService, User, Vacina } from '../modal/profile.services';
+import { profileService, User } from '../modal/profile.services';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ModalController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import {Validators, FormBuilder } from '@angular/forms';
 import { VacinaService,  } from '../vacina-modal/vacina.services';
 import { PopoverPage } from '../popover/popover';
+import { ModalNovasVacinasPage } from '../modal-novas-vacinas/modal-novas-vacinas';
+import { Tab1Page } from '../tab1/tab1';
 
 
 /**
@@ -30,7 +32,6 @@ export class Tab2Page {
   hiddenCardVacinas: Boolean;
   hiddenFormVacinas: Boolean;
   user_vacinas;
-  private formulario: FormGroup;
   datajson;
 
   vacina: string;
@@ -54,7 +55,8 @@ export class Tab2Page {
     public popoverCtrl: PopoverController,
     private VacinaService: VacinaService,
     private formBuilder: FormBuilder,
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    public modalCtrl: ModalController) {
       this.formulario = this.formBuilder.group({
         validarVacina: ['', Validators.required],
         validarData: ['', Validators.required],
@@ -80,6 +82,10 @@ export class Tab2Page {
 
   }
 
+  dash(){
+    this.navCtrl.push(Tab1Page);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad Tab2Page');
   }
@@ -100,7 +106,7 @@ export class Tab2Page {
     this.vacinas = this.user_vacinas;
 }
 
-presentPopover(myEvent) {
+  presentPopover(myEvent) {
     let popover = this.popoverCtrl.create(PopoverPage);
     popover.present({
       ev: myEvent
@@ -230,5 +236,14 @@ presentPopover(myEvent) {
         }
       })   
     }    
+  }
+
+  editVacinas(){
+    let vacinaModal = this.modalCtrl.create(ModalNovasVacinasPage);
+    vacinaModal.present();
+
+    vacinaModal.onDidDismiss(data => {  
+      console.log(data);
+    });
   }
 }

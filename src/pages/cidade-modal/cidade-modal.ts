@@ -48,6 +48,7 @@ export class CidadeModalPage {
   public closeModal(){
     this.viewCtrl.dismiss();
   }
+  
   public showDengue(){
     this.propBtn1 = "colunas2";
     this.propBtn2 = "colunas1";
@@ -62,7 +63,5 @@ export class CidadeModalPage {
     this.hiddentxt = true;
     this.cardLep = false;
     this.cardDengue = true;
-} 
-
-
+  } 
 }

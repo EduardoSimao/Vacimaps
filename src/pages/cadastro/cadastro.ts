@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController,App } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { HttpClient } from '@angular/common/http';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import {Validators, FormBuilder } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -11,7 +11,6 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CadastroPage {
   private API_URL = 'https://vacimaps-app.herokuapp.com'
-  private formulario: FormGroup;
 
   nome: string;
   senha: string;
