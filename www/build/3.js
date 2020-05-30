@@ -1,53 +1,12 @@
 webpackJsonp([3],{
 
-/***/ 295:
+/***/ 218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfiguracoesPageModule", function() { return ConfiguracoesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalNovasVacinasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configuracoes__ = __webpack_require__(300);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var ConfiguracoesPageModule = /** @class */ (function () {
-    function ConfiguracoesPageModule() {
-    }
-    ConfiguracoesPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__configuracoes__["a" /* ConfiguracoesPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__configuracoes__["a" /* ConfiguracoesPage */]),
-            ],
-        })
-    ], ConfiguracoesPageModule);
-    return ConfiguracoesPageModule;
-}());
-
-//# sourceMappingURL=configuracoes.module.js.map
-
-/***/ }),
-
-/***/ 300:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracoesPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_profile_services__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,80 +18,67 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-
-var ConfiguracoesPage = /** @class */ (function () {
-    function ConfiguracoesPage(navCtrl, navParams, formBuilder, profileService, toast, http, viewCtrl) {
-        var _this = this;
+var ModalNovasVacinasPage = /** @class */ (function () {
+    function ModalNovasVacinasPage(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.formBuilder = formBuilder;
-        this.profileService = profileService;
-        this.toast = toast;
-        this.http = http;
         this.viewCtrl = viewCtrl;
-        this.API_URL = 'https://vacimaps-app.herokuapp.com';
-        this.profileService.getUser().subscribe(function (usuario) {
-            _this.email = usuario.email;
-        });
-        this.formulario = this.formBuilder.group({
-            validarSenha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-            validarNovaSenha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-            validarConfSenha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-        });
-        this.token = JSON.parse(localStorage.getItem('token'));
     }
-    ConfiguracoesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ConfiguracoesPage');
+    ModalNovasVacinasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ModalNovasVacinasPage');
     };
-    ConfiguracoesPage.prototype.closeModal = function () {
+    ModalNovasVacinasPage.prototype.closeModal = function () {
         this.viewCtrl.dismiss();
     };
-    ConfiguracoesPage.prototype.doPut = function () {
-        var _this = this;
-        console.log("POST");
-        var url = this.API_URL + "/change_password";
-        this.datajson = {
-            senha_atual: this.senhaAtual,
-            nova_senha: this.novasenha,
-        };
-        console.log(this.datajson);
-        if (this.novasenha == this.confsenha) {
-            this.http
-                .put(url, this.datajson, { headers: new __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpHeaders */]({ 'token': this.token.token }) })
-                .subscribe(function (res) {
-                if (res['Mensagem'] == 'Senha alterada com sucesso!') {
-                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                    _this.closeModal();
-                }
-                else {
-                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                }
-            });
-        }
-        else {
-            this.toast.create({ message: "Senhas Diferentes!", duration: 3000, position: 'botton' }).present();
-        }
-    };
-    ConfiguracoesPage = __decorate([
+    ModalNovasVacinasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-configuracoes',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/configuracoes/configuracoes.html"*/'<style>\n  @font-face {\n    font-family: Souliyo-Unicode;\n    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n  }\n  body{ \n    left: 0%; \n    /*background-color: white; */\n    font-family: \'Souliyo-Unicode\', sans-serif;\n  }\n  h1{\n    color: #47525E;\n    text-align: center;\n    font-size: 12pt;\n    font-weight: 900;\n    font-style: normal;\n    line-height: normal;\n    letter-spacing: 0.5px;\n    margin-top: 43px;\n    margin-left: 2px;\n  }\n  img{\n    width: 35px;\n    height: 32px;\n    margin-top: 10%;\n  }\n  .primeira-div{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n  }\n  #div-config{\n    width: 104%;\n    height: 38%;\n    margin-top: 27px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  p{\n    font-weight: 600;\n    font-size: 12px;\n    color: #47525E;\n    margin-bottom: 1px;\n    text-transform: uppercase;\n    padding-left: 20px;\n  }\n  #perfil{\n    padding-top: 5px;\n    padding-left: 19px;\n  }\n  #senha{\n    margin-top: -14px;\n  }\n  button{\n    width: 110px;\n    height: 47px;\n    font-weight: 900;\n    border-radius: 50pt;\n    font-family: roboto;\n    font-size: 15px;\n    text-transform: uppercase;\n  }\n  .botao-salvar{\n    background-color: #53CED3;\n    color: black;\n    margin-top: 50px;\n  }\n  .botao-cancelar{\n    color: white;\n    background-color: #53D35B;\n    margin-top: 26px;\n    width: 100px;\n    height: 40px;\n  }\n  ion-icon {\n    font-size: 160px; \n    vertical-align: auto;\n  }\n  a{\n    color: gray;\n  }\n  ion-item{\n    border: 1px solid #53CED3;\n    border-radius: 50pt;\n    width: 200pt;\n    height: 30pt;\n    background-color: rgba(233, 233, 233, 0.62);\n  }\n  input::placeholder{\n    width: 270px; text-align: center; color: white; font-size: 12px;\n  }\n  .input-email{\n    text-align: center; font-size: 12px; color: #E7E6E6; top: -23px; padding: 2px; width: 104%; left: -7px; margin-top: 17px;\n  }\n  .campos{\n    margin-bottom: 36px;\n  }\n  .botoes{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n</style>\n\n<ion-content>\n  <body>\n    <div class="primeira-div">\n      <img src="assets/imgs/logo.png">\n      <h1>VACIMAPS</h1>\n    </div>\n\n    <h1>Alterar senha</h1>\n        \n        <div id="div-config">\n          <div class="campos">\n            <p id="perfil">Senha atual</p>\n            <ion-item>\n              <ion-input type="password" [(ngModel)]="senhaAtual" [formControl]="formulario.controls[\'validarSenha\']" ></ion-input>\n            </ion-item>\n          </div>\n\n          <div class="campos">\n            <p id="senha">Nova senha</p>\n            <ion-item>   \n              <ion-input type="password" [(ngModel)]="novasenha" [formControl]="formulario.controls[\'validarNovaSenha\']" ></ion-input>\n            </ion-item>\n          </div>\n\n          <div class="campos">\n            <p id="senha">Repita a senha</p>\n            <ion-item>      \n              <ion-input type="password" [(ngModel)]="confsenha" [formControl]="formulario.controls[\'validarConfSenha\']" ></ion-input>\n            </ion-item>\n          </div>\n        </div>\n\n        <div class="botoes">\n          <button ion-button class="botao-salvar" (click)="doPut()" [disabled]="!formulario.valid" color="light">Alterar</button>\n          <button ion-button class="botao-cancelar" (click)="closeModal()">Cancelar</button>\n        </div>\n  </body>\n</ion-content>'/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/configuracoes/configuracoes.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_2__modal_profile_services__["a" /* profileService */]]
+            selector: 'page-modal-novas-vacinas',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/modal-novas-vacinas/modal-novas-vacinas.html"*/'<style>\n  @font-face {\n    font-family: Souliyo-Unicode;\n    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n  }\n  .card-nv-vacina{\n    background: #97D9DB;\n    width: 330px;\n    height: 420px;\n    border-radius: 3px;\n    box-shadow: none !important;\n    padding: 40px 15px;\n  }\n  .nomes-inputs{\n    font-size: 10px;\n    font-weight: 550;\n  }\n  .inputs-vacinas{\n    border: 1px solid #02AEB4;\n  }\n  .botoes-final{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  .botao-salvar{\n    width: 110px;\n    height: 47px;\n    color: white;\n    border-radius: 50pt;\n    font-family: roboto;\n    font-size: 15px;\n    text-transform: uppercase;\n    background-color: #53D35B;\n    margin-top: 40px;\n    font-weight: bolder;\n  }\n  .botao-cancelar{\n    width: 100px;\n    height: 37px;\n    color: #97D9DB;\n    margin-top: 20px;\n    border-radius: 50pt;\n    font-family: roboto;\n    font-size: 15px;\n    font-weight: 600;\n    background-color: white;\n    margin-bottom: 24px;\n  }\n</style>\n\n<ion-modal>\n  <ion-content padding>\n    <!-- Card para cadastrar vacina -->\n    <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">\n      <ion-card class="card-nv-vacina">\n        <ion-label class="nomes-inputs">Nome da Vacina: </ion-label>\n        <ion-input type="text" class="inputs-vacinas"></ion-input>\n              \n        <ion-label class="nomes-inputs">Lote: </ion-label>\n        <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls[\'vaidarLote\']" [(ngModel)]="lote"></ion-input>\n\n        <ion-label class="nomes-inputs">Data: </ion-label>\n        <ion-datetime [formControl]="formulario.controls[\'validarData\']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>\n\n        <div class="botoes-final">\n          <button class="botao-salvar" (click)="doPOST()" [disabled]="!formulario.valid" ion-button> Salvar </button>\n          <button class="botao-cancelar" (click)="closeModal()" ion-button> Cancelar </button>\n        </div>\n      </ion-card>\n    </div>\n  </ion-content>\n</ion-modal>\n'/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/modal-novas-vacinas/modal-novas-vacinas.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_2__modal_profile_services__["a" /* profileService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
-    ], ConfiguracoesPage);
-    return ConfiguracoesPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]) === "function" && _c || Object])
+    ], ModalNovasVacinasPage);
+    return ModalNovasVacinasPage;
+    var _a, _b, _c;
 }());
 
-//# sourceMappingURL=configuracoes.js.map
+//# sourceMappingURL=modal-novas-vacinas.js.map
+
+/***/ }),
+
+/***/ 299:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalNovasVacinasPageModule", function() { return ModalNovasVacinasPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_novas_vacinas__ = __webpack_require__(218);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ModalNovasVacinasPageModule = /** @class */ (function () {
+    function ModalNovasVacinasPageModule() {
+    }
+    ModalNovasVacinasPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__modal_novas_vacinas__["a" /* ModalNovasVacinasPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__modal_novas_vacinas__["a" /* ModalNovasVacinasPage */]),
+            ],
+        })
+    ], ModalNovasVacinasPageModule);
+    return ModalNovasVacinasPageModule;
+}());
+
+//# sourceMappingURL=modal-novas-vacinas.module.js.map
 
 /***/ })
 

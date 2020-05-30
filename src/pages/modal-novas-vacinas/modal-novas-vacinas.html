@@ -49,23 +49,25 @@
   }
 </style>
 
-<ion-content padding>
-  <!-- Card para cadastrar vacina -->
-  <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">
-    <ion-card class="card-nv-vacina">
-      <ion-label class="nomes-inputs">Nome da Vacina: </ion-label>
-      <ion-input type="text" class="inputs-vacinas"></ion-input>
-            
-      <ion-label class="nomes-inputs">Lote: </ion-label>
-      <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls['vaidarLote']" [(ngModel)]="lote"></ion-input>
+<ion-modal>
+  <ion-content padding>
+    <!-- Card para cadastrar vacina -->
+    <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">
+      <ion-card class="card-nv-vacina">
+        <ion-label class="nomes-inputs">Nome da Vacina: </ion-label>
+        <ion-input type="text" class="inputs-vacinas"></ion-input>
+              
+        <ion-label class="nomes-inputs">Lote: </ion-label>
+        <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls['vaidarLote']" [(ngModel)]="lote"></ion-input>
 
-      <ion-label class="nomes-inputs">Data: </ion-label>
-      <ion-datetime [formControl]="formulario.controls['validarData']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>
+        <ion-label class="nomes-inputs">Data: </ion-label>
+        <ion-datetime [formControl]="formulario.controls['validarData']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>
 
-      <div class="botoes-final">
-        <button class="botao-salvar" (click)="doPOST()" [disabled]="!formulario.valid" ion-button> Salvar </button>
-        <button class="botao-cancelar" (click)="closeModal()" ion-button> Cancelar </button>
-      </div>
-    </ion-card>
-  </div>
-</ion-content>
+        <div class="botoes-final">
+          <button class="botao-salvar" (click)="doPOST()" [disabled]="!formulario.valid" ion-button> Salvar </button>
+          <button class="botao-cancelar" (click)="closeModal()" ion-button> Cancelar </button>
+        </div>
+      </ion-card>
+    </div>
+  </ion-content>
+</ion-modal>

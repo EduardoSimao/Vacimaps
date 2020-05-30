@@ -1,21 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Tab1Service, City } from './tab1.services';
-import { ModalController } from 'ionic-angular';
-import { profileService, User } from '../modal/profile.services';
-import { PopoverController } from 'ionic-angular';
-import { DashboardPage } from '../dashboard/dashboard';
-import { PopoverPage } from '../popover/popover';
 import { ViewChild } from '@angular/core';
-import { Searchbar } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Searchbar } from 'ionic-angular';
+import { Tab1Service, City } from './tab1.services';
+import { profileService, User } from '../modal/profile.services';
 import { Tab2Page } from '../tab2/tab2';
- 
-/**
- * Generated class for the Tab1Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ModalPage } from '../modal/modal';
 
 @IonicPage()
 @Component({
@@ -37,7 +26,6 @@ export class Tab1Page {
      public navParams: NavParams,
      private Tab1Service: Tab1Service,
      public cityModal : ModalController,
-     public popoverCtrl: PopoverController,
      private profileService: profileService) {   
       this.profileService.getUser().subscribe((usuario: User) => {
         this.nome = usuario.nome;
@@ -54,6 +42,10 @@ export class Tab1Page {
 
   vacinas(){
     this.navCtrl.push(Tab2Page);
+  }
+
+  perfil(){
+    this.navCtrl.push(ModalPage);
   }
 
   ionViewDidLoad() {
@@ -103,13 +95,6 @@ export class Tab1Page {
       
       })
     }
-  }
-
-  presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverPage);
-    popover.present({
-      ev: myEvent
-    });
   }
 
 }

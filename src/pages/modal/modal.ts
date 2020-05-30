@@ -1,19 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController, App } from 'ionic-angular';
-import { ViewController } from 'ionic-angular';
-import { profileService, User } from './profile.services';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { IonicPage, NavController, NavParams,ToastController, App, ModalController, ViewController } from 'ionic-angular';
+import { profileService, User } from './profile.services';
 import { HomePage } from '../home/home';
 import { Tab1Page } from '../tab1/tab1';
 import { Tab2Page } from '../tab2/tab2';
 import { ConfiguracoesPage } from '../configuracoes/configuracoes';
-
-/**
- * Generated class for the ModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -35,6 +27,7 @@ export class ModalPage {
     private toast: ToastController, 
     private http: HttpClient,
     public appCtrl: App,
+    public modalController: ModalController,
     public viewCtrl : ViewController,
     private profileService: profileService) {
       this.profileService.getUser().subscribe((usuario: User) => {
@@ -43,7 +36,7 @@ export class ModalPage {
         this.dt_nascimento = new Date(usuario.dt_nascimento).toISOString();
   });
   this.token = JSON.parse(localStorage.getItem('token'));
-}
+  }
 
   dash(){
     this.navCtrl.push(Tab1Page);
@@ -56,14 +49,13 @@ export class ModalPage {
   alterar(){
     this.navCtrl.push(ConfiguracoesPage);
   }
+  
+  perfil(){
+    this.navCtrl.push(ModalPage);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalPage');
-  }
-
-  public Sair () {
-    localStorage.removeItem('token');
-    this.appCtrl.getRootNav().setRoot(HomePage);
   }
 
   save() {
@@ -78,15 +70,15 @@ export class ModalPage {
       .subscribe(res => {
         if(res['Mensagem'] == 'Usuário alterado com sucesso!'){          
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()    
-          this.closeModal()
         }else {
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()     
-          
-
-
         }
       })   
-    }   
+  }   
   
+  public Sair () {
+    localStorage.removeItem('token');
+    this.appCtrl.getRootNav().setRoot(HomePage)
+  }
 
 }
