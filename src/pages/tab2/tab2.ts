@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
+import { profileService, User, Vacina } from '../modal/profile.services';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { IonicPage, NavController, NavParams, ToastController, App, ModalController } from 'ionic-angular';
-import { profileService, User } from '../modal/profile.services';
+import { ModalController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { VacinaService,  } from '../vacina-modal/vacina.services';
-import { Tab1Page } from '../tab1/tab1';
-import { ModalPage } from '../modal/modal';
+import { PopoverPage } from '../popover/popover';
+
+
+/**
+ * Generated class for the Tab2Page page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -42,10 +51,10 @@ export class Tab2Page {
     private profileService: profileService,
     private http: HttpClient,
     public appCtrl: App, 
+    public popoverCtrl: PopoverController,
     private VacinaService: VacinaService,
     private formBuilder: FormBuilder,
-    public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public navParams: NavParams) {
       this.formulario = this.formBuilder.group({
         validarVacina: ['', Validators.required],
         validarData: ['', Validators.required],
@@ -71,14 +80,6 @@ export class Tab2Page {
 
   }
 
-  dash(){
-    this.navCtrl.push(Tab1Page);
-  }
-
-  perfil(){
-    this.navCtrl.push(ModalPage);
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad Tab2Page');
   }
@@ -99,6 +100,13 @@ export class Tab2Page {
     this.vacinas = this.user_vacinas;
 }
 
+presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
   ModalVacina(){
     /*var modalvacina = this.vacinaModal.create ('VacinaModalPage');
     modalvacina.onDidDismiss(() => {
@@ -118,6 +126,7 @@ export class Tab2Page {
     this.vacina = vacina.id_vacina;
     this.hiddenFormVacinas = false;
     this.hiddenCardVacinas = true;
+
   }
 
   doDELETE(vacina) {
@@ -221,9 +230,5 @@ export class Tab2Page {
         }
       })   
     }    
-  }
-
-  public editarVacina() {
-    var vacinaPage = this.modalCtrl.create ('ModalNovasVacinasPage'); vacinaPage.present (); 
   }
 }
