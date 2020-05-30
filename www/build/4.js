@@ -105,7 +105,7 @@ var CidadeModalPage = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
     ], CidadeModalPage);
     return CidadeModalPage;
 }());
