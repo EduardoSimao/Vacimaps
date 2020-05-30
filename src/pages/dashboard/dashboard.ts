@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, Nav, Searchbar } from 'ionic-angular';
 import { ModalController, App } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { profileService, User } from '../perfil/profile.services';
+import { PerfilPage } from '../perfil/perfil';
 
 export interface PageInterface {
   title: string;
@@ -16,28 +16,49 @@ export interface PageInterface {
 @Component({
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html',
-  
+  providers: [DashboardService, profileService]
 })
 export class DashboardPage {
+  cidades: any;
+  cidade: any[];
+  hiddenCidades: Boolean;
+  selectOptions;
+  nome: string;
+  @ViewChild('searchQuery') searchbar: Searchbar;
+
  
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public appCtrl: App, 
     public modalCtrl : ModalController,
-    public confCtrl : ModalController){
+    public confCtrl : ModalController,
+    private profileService: profileService){
+      this.profileService.getUser().subscribe((usuario: User) => {
+        this.nome = usuario.nome;
+      });   
+      
+      this.Tab1Service.getCity().subscribe((cidades) => {
+        this.cidades = cidades;
+        this.cidade = this.cidades;
+      });
+    
+     this.hiddenCidades = true;
 }
 
-public openModal () {
-  var modalPage = this.modalCtrl.create ('ModalPage'); modalPage.present (); 
+public openModal() {
+  var perfilPage = this.modalCtrl.create ('PerfilPage'); perfilPage.present (); 
 }
 
-public modalOpen () {
+public modalOpen() {
   var confPage = this.confCtrl.create ('ConfiguracoesPage'); confPage.present (); 
 }
 
-public Sair () {
-  localStorage.removeItem('token');
-  this.appCtrl.getRootNav().setRoot(HomePage)
+vacinas(){
+  this.navCtrl.push(Tab2Page);
+}
+
+perfil(){
+  this.navCtrl.push(PerfilPage);
 }
 
   ionViewDidLoad() {
@@ -47,8 +68,6 @@ public Sair () {
  
   // Reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
- 
-  
 
 }
 

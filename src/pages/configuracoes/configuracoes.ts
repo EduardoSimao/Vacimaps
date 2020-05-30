@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
-import { profileService, User } from '../modal/profile.services';
+import { profileService, User } from '../perfil/profile.services';
 
 
 @IonicPage()

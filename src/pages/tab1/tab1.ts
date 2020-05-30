@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Searchbar } from 'ionic-angular';
 import { Tab1Service, City } from './tab1.services';
-import { profileService, User } from '../modal/profile.services';
+import { profileService, User } from '../perfil/profile.services';
 import { Tab2Page } from '../tab2/tab2';
 import { ModalPage } from '../modal/modal';
 
@@ -39,14 +39,6 @@ export class Tab1Page {
      this.hiddenCidades = true;
       
   } 
-
-  vacinas(){
-    this.navCtrl.push(Tab2Page);
-  }
-
-  perfil(){
-    this.navCtrl.push(ModalPage);
-  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Tab1Page');

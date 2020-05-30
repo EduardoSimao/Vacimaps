@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { IonicPage, NavController, NavParams,ToastController, App, ModalController, ViewController } from 'ionic-angular';
-import { profileService, User } from './profile.services';
+import { profileService, User } from '../perfil/profile.services';
 import { HomePage } from '../home/home';
 import { Tab1Page } from '../tab1/tab1';
 import { Tab2Page } from '../tab2/tab2';
