@@ -1,18 +1,224 @@
-<!--
-  Generated template for the VacinasPage page.
+<style>
+  @font-face {
+    font-family: Souliyo-Unicode;
+    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
+  }
+  ion-header{
+    background-color: white;
+    background-size: cover;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+  }
+  .menu{
+    background: transparent;
+    box-shadow: none;
+    height: 49px;
+  }
+  #label-menu{
+    font-size: 11px;
+    text-transform: capitalize;
+    margin-left: -8px;
+    color: #FFFFFF;
+  }
+  ion-label{
+    color: #47525E;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+  }
+  ion-content{
+    font-family: 'Souliyo-Unicode', sans-serif;
+    background-color: white;
+  }
+  h1{
+    color: rgba(71, 82, 94, 0.53);
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 51px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .minhavacina{
+    background: #53CED3;
+    width: 330px;
+    height: 90px;
+    border-radius: 3px;
+    margin-top: 0px;
+    box-shadow: none !important;
+  }
+  .btn-2{
+    position: absolute;
+    bottom: 85px;
+    right: 3px;
+    padding: 2px;
+    padding-left: 3px;
+    border-radius: 7px;
+  }
+  .icone-editar{
+    background-color: white;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 20px;
+    color: #53CED3;
+  }
+  .p-card{
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .row{
+    -webkit-box-pack: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+  }
+  .button-md{
+    -webkit-box-shadow: transparent !important;
+    box-shadow: transparent !important;
+  }
+  .btn-vacinas{
+    background-color: transparent;
+  }
+  .btn-nv-vacinas{
+    margin-top: 10px;
+    height: 30px;
+    width: 110px;
+    font-size: 13px;
+    margin-left: 25px;
+    background-color: white;
+    font-family: Roboto;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    text-transform: inherit;
+  }
+  .addvacina{
+    color: #53CED3;
+    font-size: 30px;
+  }
+  .adc-vacina{
+    background-color: transparent !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+  ion-card-content {
+    margin-top: -23px;
+    margin-left: -15px;
+  }
+  ion-card-header {
+    margin-top: -12px;
+    margin-left: -10px;
+  }
+  .vacinas{
+    width: 95%;
+    border-radius: 50pt;
+    margin-bottom: 15px;
+  }
+  ion-datetime{
+    background-color: #DBDBDB;
+    border-radius: 50pt;
+    width: 95%;
+    height: 30px;
+    border: 1px solid #02AEB4;
+    padding: 7px 10px;
+  }
+  .date-time-md, .datetime-placeholder{
+    width: calc((100% - 8px) - 8px);
+    margin: 5px !important;
+    padding: 0px !important;
+  }
+  ion-input{
+    background-color: #DBDBDB;
+    border-radius: 50pt;
+    width: 95%;
+    height: 30px;
+  }
+  button{
+    box-shadow: none;
+  }
+  .botao-editar{
+    position: absolute;
+    bottom: 69px;
+    left: 287px;
+    border-radius: 7px;
+  }
+  .text-input-md{
+    margin: 0px !important;
+    padding: 6px 8px;
+  }
+  .icone-excluir{
+    background-color: #F95F62;
+    padding: 5px;
+    border-radius: 12px;
+    font-size: 20px;
+    color: white;
+  }
+</style>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+<ion-content>
+  <ion-header>
+    <button class="menu" ion-button (click)="dash()">
+      <ion-avatar style="font-size: 25px; background-color: #53D35B; border-radius: 50pt; padding: 7px 10px; margin-bottom: 6px;">
+        <ion-icon name="ios-map-outline"></ion-icon>
+      </ion-avatar>
+    </button>
 
-  <ion-navbar>
-    <ion-title>vacinas</ion-title>
-  </ion-navbar>
+    <ion-searchbar placeholder="Digite o nome da vacina" (ionInput)="getCity($event)" #searchQuery></ion-searchbar>
+      <ion-list [hidden]= hiddenCidades>
+        <button (click)="something(c)" ion-item *ngFor="let c of cidades">
+          <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>
+        </button>
+      </ion-list> 
 
-</ion-header>
+      <button class="menu" (click)="perfil()" ion-button>
+        <ion-avatar style="font-size: 30px; color: black;">
+          <ion-icon name="ios-contact"></ion-icon>
+        </ion-avatar>
+      </button>
+  </ion-header>
 
+  <ion-grid>
+    <div class="content">
+      
+      <h1>Minhas Vacinas</h1>
+      <ion-row justify-content-end>
+        <button class="adc-vacina" (click)="ModalVacina()" ion-button>
+          <ion-icon class="addvacina" name="add-circle"></ion-icon>
+        </button>
+      </ion-row>
 
-<ion-content padding>
+      <!-- Lista de vacinas cadastradas -->
+      <ion-row justify-content-center>
+        <ion-list *ngFor="let vacina of vacinas" >
+          <ion-card class="minhavacina">
+            <ion-card-header>
+              <p class="p-card">{{ vacina.vacina }}</p>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-label style="margin-bottom: 9px;"> Data: {{ vacina.data_vacina }} </ion-label>
+              <ion-label style="margin-top: -5px;"> Lote: {{ vacina.local }} </ion-label>
+            </ion-card-content>
+            <ion-row text-right [hidden]= hiddenCardVacinas>
+              <ion-col>
+                <button class="botao-editar" ion-button icon-left clear small (click)="editContact(vacina);">
+                  <ion-icon class="icone-editar" name="md-create"></ion-icon>
+                </button>
+                <button class="btn-2" ion-button icon-left clear small (click)="doDELETE(vacina);">
+                  <ion-icon class="icon-btn" name="ios-trash"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-list>
+      </ion-row>
 
+    </div>
+  </ion-grid>
+  
 </ion-content>

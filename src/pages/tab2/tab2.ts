@@ -1,20 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
-import { profileService, User, Vacina } from '../modal/profile.services';
+import { profileService, User, Vacina } from '../perfil/profile.services';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ModalController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { VacinaService,  } from '../vacina-modal/vacina.services';
+import { VacinaService,  } from '../vacinas/vacina.services';
 import { PopoverPage } from '../popover/popover';
-
-
-/**
- * Generated class for the Tab2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

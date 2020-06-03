@@ -49,13 +49,16 @@
   }
 </style>
 
-<ion-modal>
   <ion-content padding>
     <!-- Card para cadastrar vacina -->
     <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">
       <ion-card class="card-nv-vacina">
-        <ion-label class="nomes-inputs">Nome da Vacina: </ion-label>
-        <ion-input type="text" class="inputs-vacinas"></ion-input>
+        <ion-item class="vac">
+          <ion-label class="nomes-inputs">Nome da Vacina:</ion-label>
+          <ion-select [formControl]="formulario.controls['validarVacina']" [(ngModel)]="vacina" disabled="disabled">
+              <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>
+          </ion-select>
+        </ion-item>
               
         <ion-label class="nomes-inputs">Lote: </ion-label>
         <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls['vaidarLote']" [(ngModel)]="lote"></ion-input>
@@ -70,4 +73,3 @@
       </ion-card>
     </div>
   </ion-content>
-</ion-modal>

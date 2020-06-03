@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 302:
+/***/ 304:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VacinaModalPageModule", function() { return VacinaModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalNovasVacinasPageModule", function() { return ModalNovasVacinasPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vacina_modal__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_novas_vacinas__ = __webpack_require__(306);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var VacinaModalPageModule = /** @class */ (function () {
-    function VacinaModalPageModule() {
+var ModalNovasVacinasPageModule = /** @class */ (function () {
+    function ModalNovasVacinasPageModule() {
     }
-    VacinaModalPageModule = __decorate([
+    ModalNovasVacinasPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__vacina_modal__["a" /* VacinaModalPage */],
+                __WEBPACK_IMPORTED_MODULE_2__modal_novas_vacinas__["a" /* ModalNovasVacinasPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__vacina_modal__["a" /* VacinaModalPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__modal_novas_vacinas__["a" /* ModalNovasVacinasPage */]),
             ],
         })
-    ], VacinaModalPageModule);
-    return VacinaModalPageModule;
+    ], ModalNovasVacinasPageModule);
+    return ModalNovasVacinasPageModule;
 }());
 
-//# sourceMappingURL=vacina-modal.module.js.map
+//# sourceMappingURL=modal-novas-vacinas.module.js.map
 
 /***/ }),
 
-/***/ 304:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VacinaModalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalNovasVacinasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__vacinas_vacina_services__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vacinas_vacina_services__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,74 +60,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-/**
- * Generated class for the VacinaModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var VacinaModalPage = /** @class */ (function () {
-    function VacinaModalPage(navCtrl, viewCtrl, toast, http, appCtrl, formBuilder, VacinaService, navParams) {
-        var _this = this;
+var ModalNovasVacinasPage = /** @class */ (function () {
+    function ModalNovasVacinasPage(navCtrl, navParams, viewCtrl, modalController, toast, http) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
         this.viewCtrl = viewCtrl;
+        this.modalController = modalController;
         this.toast = toast;
         this.http = http;
-        this.appCtrl = appCtrl;
-        this.formBuilder = formBuilder;
-        this.VacinaService = VacinaService;
-        this.navParams = navParams;
         this.API_URL = 'https://vacimaps-app.herokuapp.com';
-        this.formulario = this.formBuilder.group({
-            validarVacina: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-            validarData: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-            vaidarLote: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* Validators */].required],
-        });
-        this.token = JSON.parse(localStorage.getItem('token'));
-        if (this.navParams.data.nome_vacina &&
-            this.navParams.data.data_vacina &&
-            this.navParams.data.ds_local_vacina &&
-            this.navParams.data.id_usuario_vacina) {
-            this.nome_vac = this.navParams.data.nome_vacina;
-            this.data = new Date(this.navParams.data.data_vacina).toISOString();
-            this.lote = this.navParams.data.ds_local_vacina;
-            this.id = this.navParams.data.id_usuario_vacina;
-            this.vacina = this.navParams.data.id_vacina;
-            ;
-        }
-        this.VacinaService.getVacinas().subscribe(function (vacinas) {
-            _this.vacinas = vacinas;
-            _this.nome_vac = _this.vacinas;
-        });
-        this.hiddenCidades = true;
     }
-    VacinaModalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad VacinaModalPage');
+    ModalNovasVacinasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ModalNovasVacinasPage');
     };
-    VacinaModalPage.prototype.closeModal = function () {
-        this.viewCtrl.dismiss();
+    /* Função que fecha modal */
+    ModalNovasVacinasPage.prototype.closeModal = function () {
+        this.nome_vac = [];
+        this.data = "";
+        this.lote = '';
+        this.id_usuario_vacina = '';
+        this.vacina = '';
+        this.hiddenFormVacinas = true;
+        this.hiddenCardVacinas = false;
     };
-    VacinaModalPage.prototype.initializeItems = function () {
-        this.vacinas = this.nome_vac;
-    };
-    VacinaModalPage.prototype.doPOST = function () {
+    /* Função que edita vacinas */
+    ModalNovasVacinasPage.prototype.doPOST = function () {
         var _this = this;
-        if (this.id) {
+        if (this.id_usuario_vacina) {
+            console.log("PUT");
             this.datajson = {
                 id_vacina: this.vacina,
                 data_vacina: this.data,
                 ds_local_vacina: this.lote,
             };
-            console.log(this.datajson);
-            var url = this.API_URL + "/usuario/vacina/" + this.id;
+            var url = this.API_URL + "/usuario/vacina/" + this.id_usuario_vacina;
             this.http
                 .put(url, this.datajson, { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'token': this.token.token }) })
                 .subscribe(function (res) {
                 if (res['Mensagem'] == 'Vacina alterada com sucesso!') {
                     _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                    _this.closeModal();
+                    _this.navCtrl.setRoot(_this.navCtrl.getActive().component);
                 }
                 else {
                     _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
@@ -152,100 +123,27 @@ var VacinaModalPage = /** @class */ (function () {
                 }
                 else {
                     _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                    _this.closeModal();
+                    _this.navCtrl.setRoot(_this.navCtrl.getActive().component);
                 }
             });
         }
     };
-    VacinaModalPage.prototype.getVacinas = function (ev) {
-        // Reset items back to all of the items
-        this.initializeItems();
-        var val;
-        // set val to the value of the searchbar
-        try {
-            val = ev.target.value;
-            if (val.length > 2) {
-                this.hiddenCidades = false;
-            }
-            else {
-                this.hiddenCidades = true;
-            }
-        }
-        catch (_a) {
-            val = "a";
-            this.hiddenCidades = true;
-        }
-        // if the value is an empty string don't filter the items
-        if (val && val.trim() != '') {
-            this.vacinas = this.vacinas.filter(function (vacina) {
-                return (vacina.nome_vacina.toLowerCase().indexOf(val.toLowerCase()) > -1);
-            });
-        }
-    };
-    VacinaModalPage = __decorate([
+    ModalNovasVacinasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-vacina-modal',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/vacina-modal/vacina-modal.html"*/'<style>\n    @font-face {\n      font-family: Souliyo-Unicode;\n      src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n    }\n  \n    ion-content{\n      font-family: \'Souliyo-Unicode\', sans-serif;\n      background-color: #a8a8a867;\n    }\n    div{\n      height:215px; \n      width:300px; \n      border-radius: 5px; \n      margin-top: 175px;\n      align-items: center;\n      margin-left: 10px; \n      background-color: #BECEC9;\n      box-shadow: 3px 3px 3px 1px black;\n    }\n    h1{\n      color: #FFFFFF; font-size: 12px; font-weight: 100; font-style: normal; line-height: normal;\n    }\n    ion-label{\n      color:#808080;\n    }\n    .btn{\n      position: absolute;\n      bottom: 68px;\n      right: 32px;\n      padding-right: 2px;\n      padding-left: 3px;\n    }\n    .btn-2{\n      position: absolute;\n      bottom: 68px;\n      right: 3px;\n      padding: 2px;\n      padding-left: 3px;\n    }\n    .icon-btn{\n      background-color: #EEE9E9;\n      padding: 5px;\n      border-radius: 3px;\n    }\n    .btn-nv-vacinas{\n      height: 20px;\n      width: 100px;\n      font-size: 12px;\n      left: -3px;\n      background-color: white;\n      color: darkgrey;\n      text-transform: inherit;\n    }\n    .placeholder-input{\n      background-color: white;\n      width: 10px;\n      height: 28px;\n    }\n    ion-input--placeholder-color{\n      color: #FFFFFF;\n      left: -10px;\n    }\n    .input-margin{\n      margin-left: -55px;\n      margin-right: 8px;\n      border-radius: 4px;\n    }\n    ion-input .text-input{\n      margin-left: 11px;\n      font-size: 12px;\n    }\n    ion-select{\n      font-size: 12px;\n    }\n    ion-item{\n      border-radius: 10px;\n    }\n    ion-datetime{\n      background-color: white;\n      width: 60%;\n      height: 18px;\n      margin-left: -55px;\n      margin-right: 8px;\n      margin-top: 7px;\n      border-radius: 4px;\n      font-size: 12px;\n    }\n    .card-content-ios[_ngcontent-c3] {\n      padding: 0px 5px 0px;\n      font-size: 1.4rem;\n      line-height: 1.4;\n    }\n    .button-md:hover:not(.disable-hover) {\n    background-color: #ECEAEA;\n    }\n  </style>\n\n<ion-content padding>\n  <div>\n    <ion-row justify-content-center>\n        <ion-list>\n            <ion-col>\n              <ion-row>\n                  <ion-item>\n                      <ion-label>Vacinas</ion-label>\n                      <ion-select  [formControl]="formulario.controls[\'validarVacina\']" [(ngModel)]="vacina" disabled="disabled">\n                          <ion-option *ngFor="let c of vacinas" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>\n                      </ion-select>\n                    </ion-item>\n              </ion-row>\n              <ion-row>\n                <ion-col>\n                  <ion-row>\n                    <ion-label>Data</ion-label>\n                    <!--<ion-datetime display-format="MM/DD/YYYY" placeholder="dd/mm/aaaa"></ion-datetime>-->\n                    <ion-datetime  [formControl]="formulario.controls[\'validarData\']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>\n                  </ion-row>\n                </ion-col>\n              </ion-row>\n              <ion-row>\n                <ion-col>\n                  <ion-row>\n                    <ion-label>Lote: </ion-label>\n                    <ion-input  type="text" class="placeholder-input input-margin" [formControl]="formulario.controls[\'vaidarLote\']" [(ngModel)]="lote"></ion-input>\n                  </ion-row>\n                </ion-col>\n              </ion-row>\n              <ion-row>\n                <ion-col>\n                  <button class="btn-nv-vacinas" (click)="closeModal()" ion-button>\n\n                    <ion-icon style="color: red;" name="close-circle"></ion-icon>\n                      Cancelar\n                  </button>\n                </ion-col>\n                <ion-col>\n                  <button class="btn-nv-vacinas" (click)="doPOST()" [disabled]="!formulario.valid" ion-button>\n                    <ion-icon style="color: green;" name="checkmark-circle"></ion-icon>\n                      Salvar \n                  </button>\n                </ion-col>\n              </ion-row>\n              <br><br>\n            </ion-col>\n        </ion-list>\n      </ion-row>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/vacina-modal/vacina-modal.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_4__vacinas_vacina_services__["a" /* VacinaService */]]
+            selector: 'page-modal-novas-vacinas',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/modal-novas-vacinas/modal-novas-vacinas.html"*/'<style>\n  @font-face {\n    font-family: Souliyo-Unicode;\n    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n  }\n  .card-nv-vacina{\n    background: #97D9DB;\n    width: 330px;\n    height: 420px;\n    border-radius: 3px;\n    box-shadow: none !important;\n    padding: 40px 15px;\n  }\n  .nomes-inputs{\n    font-size: 10px;\n    font-weight: 550;\n  }\n  .inputs-vacinas{\n    border: 1px solid #02AEB4;\n  }\n  .botoes-final{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  .botao-salvar{\n    width: 110px;\n    height: 47px;\n    color: white;\n    border-radius: 50pt;\n    font-family: roboto;\n    font-size: 15px;\n    text-transform: uppercase;\n    background-color: #53D35B;\n    margin-top: 40px;\n    font-weight: bolder;\n  }\n  .botao-cancelar{\n    width: 100px;\n    height: 37px;\n    color: #97D9DB;\n    margin-top: 20px;\n    border-radius: 50pt;\n    font-family: roboto;\n    font-size: 15px;\n    font-weight: 600;\n    background-color: white;\n    margin-bottom: 24px;\n  }\n</style>\n\n  <ion-content padding>\n    <!-- Card para cadastrar vacina -->\n    <div justify-content-center [hidden]= hiddenFormVacinas class="cad-vacina">\n      <ion-card class="card-nv-vacina">\n        <ion-item class="vac">\n          <ion-label class="nomes-inputs">Nome da Vacina:</ion-label>\n          <ion-select [formControl]="formulario.controls[\'validarVacina\']" [(ngModel)]="vacina" disabled="disabled">\n              <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>\n          </ion-select>\n        </ion-item>\n              \n        <ion-label class="nomes-inputs">Lote: </ion-label>\n        <ion-input type="text" class="inputs-vacinas" [formControl]="formulario.controls[\'vaidarLote\']" [(ngModel)]="lote"></ion-input>\n\n        <ion-label class="nomes-inputs">Data: </ion-label>\n        <ion-datetime [formControl]="formulario.controls[\'validarData\']" display-format="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>\n\n        <div class="botoes-final">\n          <button class="botao-salvar" (click)="doPOST()" [disabled]="!formulario.valid" ion-button> Salvar </button>\n          <button class="botao-cancelar" (click)="closeModal()" ion-button> Cancelar </button>\n        </div>\n      </ion-card>\n    </div>\n  </ion-content>\n'/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/modal-novas-vacinas/modal-novas-vacinas.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_3__vacinas_vacina_services__["a" /* VacinaService */]],
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__vacinas_vacina_services__["a" /* VacinaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__vacinas_vacina_services__["a" /* VacinaService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _h || Object])
-    ], VacinaModalPage);
-    return VacinaModalPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+    ], ModalNovasVacinasPage);
+    return ModalNovasVacinasPage;
 }());
 
-//# sourceMappingURL=vacina-modal.js.map
-
-/***/ }),
-
-/***/ 307:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VacinaService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(14);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var VacinaService = /** @class */ (function () {
-    function VacinaService(navCtrl, navParams, http) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.API_URL = 'https://vacimaps-app.herokuapp.com';
-        this.token = JSON.parse(localStorage.getItem('token'));
-    }
-    VacinaService.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad VacinaService');
-    };
-    VacinaService.prototype.getVacinas = function () {
-        return this.http.get(this.API_URL + "/vacinas", { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
-                'token': this.token.token
-            }) });
-    };
-    VacinaService.prototype.getVacinasUSer = function () {
-        return this.http.get(this.API_URL + "/usuario/vacinas", { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
-                'token': this.token.token
-            }) });
-    };
-    VacinaService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
-    ], VacinaService);
-    return VacinaService;
-}());
-
-//# sourceMappingURL=vacina.services.js.map
+//# sourceMappingURL=modal-novas-vacinas.js.map
 
 /***/ })
 

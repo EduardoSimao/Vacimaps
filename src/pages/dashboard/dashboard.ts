@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, Nav, Searchbar } from 'ionic-angul
 import { ModalController, App } from 'ionic-angular';
 import { profileService, User } from '../perfil/profile.services';
 import { PerfilPage } from '../perfil/perfil';
+import { VacinasPage } from '../vacinas/vacinas';
+import { DashboardService, City } from '../dashboard/dashboard.services';
 
 export interface PageInterface {
   title: string;
@@ -32,12 +34,13 @@ export class DashboardPage {
     public appCtrl: App, 
     public modalCtrl : ModalController,
     public confCtrl : ModalController,
+    private DashboardService: DashboardService,
     private profileService: profileService){
       this.profileService.getUser().subscribe((usuario: User) => {
         this.nome = usuario.nome;
       });   
       
-      this.Tab1Service.getCity().subscribe((cidades) => {
+      this.DashboardService.getCity().subscribe((cidades) => {
         this.cidades = cidades;
         this.cidade = this.cidades;
       });
@@ -54,7 +57,7 @@ public modalOpen() {
 }
 
 vacinas(){
-  this.navCtrl.push(Tab2Page);
+  this.navCtrl.push(VacinasPage);
 }
 
 perfil(){

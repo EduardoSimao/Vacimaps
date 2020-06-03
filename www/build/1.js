@@ -1,66 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 307:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VacinaService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(14);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var VacinaService = /** @class */ (function () {
-    function VacinaService(navCtrl, navParams, http) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.API_URL = 'https://vacimaps-app.herokuapp.com';
-        this.token = JSON.parse(localStorage.getItem('token'));
-    }
-    VacinaService.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad VacinaService');
-    };
-    VacinaService.prototype.getVacinas = function () {
-        return this.http.get(this.API_URL + "/vacinas", { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
-                'token': this.token.token
-            }) });
-    };
-    VacinaService.prototype.getVacinasUSer = function () {
-        return this.http.get(this.API_URL + "/usuario/vacinas", { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
-                'token': this.token.token
-            }) });
-    };
-    VacinaService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
-    ], VacinaService);
-    return VacinaService;
-}());
-
-//# sourceMappingURL=vacina.services.js.map
-
-/***/ }),
-
-/***/ 308:
+/***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VacinasPageModule", function() { return VacinasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CidadeModalPageModule", function() { return CidadeModalPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vacinas__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cidade_modal__ = __webpack_require__(305);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -70,39 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var VacinasPageModule = /** @class */ (function () {
-    function VacinasPageModule() {
+var CidadeModalPageModule = /** @class */ (function () {
+    function CidadeModalPageModule() {
     }
-    VacinasPageModule = __decorate([
+    CidadeModalPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__vacinas__["a" /* VacinasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__cidade_modal__["a" /* CidadeModalPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__vacinas__["a" /* VacinasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__cidade_modal__["a" /* CidadeModalPage */]),
             ],
         })
-    ], VacinasPageModule);
-    return VacinasPageModule;
+    ], CidadeModalPageModule);
+    return CidadeModalPageModule;
 }());
 
-//# sourceMappingURL=vacinas.module.js.map
+//# sourceMappingURL=cidade-modal.module.js.map
 
 /***/ }),
 
-/***/ 309:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VacinasPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CidadeModalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__perfil_profile_services__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__vacinas_vacina_services__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__perfil_perfil__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -115,170 +57,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-
-var VacinasPage = /** @class */ (function () {
-    function VacinasPage(navCtrl, vacinaModal, toast, profileService, http, appCtrl, VacinaService, formBuilder, navParams, modalCtrl) {
-        var _this = this;
+/**
+ * Generated class for the CidadeModalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var CidadeModalPage = /** @class */ (function () {
+    function CidadeModalPage(navCtrl, navParams, viewCtrl) {
         this.navCtrl = navCtrl;
-        this.vacinaModal = vacinaModal;
-        this.toast = toast;
-        this.profileService = profileService;
-        this.http = http;
-        this.appCtrl = appCtrl;
-        this.VacinaService = VacinaService;
-        this.formBuilder = formBuilder;
         this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.API_URL = 'https://vacimaps-app.herokuapp.com';
-        this.formulario = this.formBuilder.group({
-            validarVacina: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
-            validarData: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
-            vaidarLote: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
-        });
-        this.profileService.getUser().subscribe(function (usuario) {
-            _this.nome = usuario.nome;
-        });
-        this.getVacinas();
-        this.VacinaService.getVacinas().subscribe(function (vacinas) {
-            _this.vacinaSelect = vacinas;
-            _this.nome_vac = _this.vacinaSelect;
-        });
-        this.token = JSON.parse(localStorage.getItem('token'));
-        this.hiddenVacinas = true;
-        this.hiddenFormVacinas = true;
-        this.hiddenCardVacinas = false;
+        this.viewCtrl = viewCtrl;
+        if (this.navParams.data.nome_cidade &&
+            this.navParams.data.uf_cidade) {
+            this.nome_cidade = this.navParams.data.nome_cidade;
+            this.uf_cidade = this.navParams.data.uf_cidade;
+        }
+        this.cardDengue = true;
+        this.cardLep = true;
+        this.hiddentxt = false;
+        this.propBtn1 = "colunas2";
+        this.propBtn2 = "colunas2";
     }
-    VacinasPage.prototype.dash = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__dashboard_dashboard__["a" /* DashboardPage */]);
+    CidadeModalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CidadeModalPage');
     };
-    VacinasPage.prototype.perfil = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__perfil_perfil__["a" /* PerfilPage */]);
+    CidadeModalPage.prototype.closeModal = function () {
+        this.viewCtrl.dismiss();
     };
-    VacinasPage.prototype.getVacinas = function () {
-        var _this = this;
-        this.profileService.getUser().subscribe(function (usuario) {
-            _this.usuario = usuario;
-            if (usuario.vacinas != 'Nenhuma vacina cadastrada!') {
-                _this.vacinas = usuario.vacinas;
-                _this.user_vacinas = _this.vacinas;
-            }
-        });
+    CidadeModalPage.prototype.showDengue = function () {
+        this.propBtn1 = "colunas2";
+        this.propBtn2 = "colunas1";
+        this.hiddentxt = true;
+        this.cardLep = true;
+        this.cardDengue = false;
     };
-    VacinasPage.prototype.initializeItems = function () {
-        this.vacinas = this.user_vacinas;
+    CidadeModalPage.prototype.showLep = function () {
+        this.propBtn1 = "colunas1";
+        this.propBtn2 = "colunas2";
+        this.hiddentxt = true;
+        this.cardLep = false;
+        this.cardDengue = true;
     };
-    VacinasPage.prototype.doDELETE = function (vacina) {
-        var _this = this;
-        console.log("DELETE");
-        var url = this.API_URL + "/usuario/vacina/" + vacina.id;
-        this.http
-            .delete(url, { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'token': this.token.token }) })
-            .subscribe(function (res) {
-            if (res['Mensagem'] == 'Vacina deletada com sucesso!') {
-                _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                _this.navCtrl.setRoot(_this.navCtrl.getActive().component);
-            }
-            else {
-                _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-            }
-        });
-    };
-    VacinasPage.prototype.getVacina = function (ev) {
-        // Reset items back to all of the items
-        this.initializeItems();
-        var val;
-        try {
-            val = ev.target.value;
-            if (val.length > 2) {
-                this.hiddenVacinas = false;
-            }
-            else {
-                this.hiddenVacinas = true;
-            }
-        }
-        catch (_a) {
-            val = "a";
-            this.hiddenVacinas = true;
-        }
-        // if the value is an empty string don't filter the items
-        if (val && val.trim() != '') {
-            this.vacinas = this.vacinas.filter(function (vacina) {
-                return (vacina.vacina.toLowerCase().indexOf(val.toLowerCase()) > -1);
-            });
-        }
-    };
-    VacinasPage.prototype.closeModal = function () {
-        this.nome_vac = [];
-        this.data = "";
-        this.lote = '';
-        this.id_usuario_vacina = '';
-        this.vacina = '';
-        this.hiddenFormVacinas = true;
-        this.hiddenCardVacinas = false;
-    };
-    VacinasPage.prototype.doPOST = function () {
-        var _this = this;
-        if (this.id_usuario_vacina) {
-            console.log("PUT");
-            this.datajson = {
-                id_vacina: this.vacina,
-                data_vacina: this.data,
-                ds_local_vacina: this.lote,
-            };
-            var url = this.API_URL + "/usuario/vacina/" + this.id_usuario_vacina;
-            this.http
-                .put(url, this.datajson, { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'token': this.token.token }) })
-                .subscribe(function (res) {
-                if (res['Mensagem'] == 'Vacina alterada com sucesso!') {
-                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                    _this.navCtrl.setRoot(_this.navCtrl.getActive().component);
-                }
-                else {
-                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                }
-            });
-        }
-        else {
-            console.log("POST");
-            var url = this.API_URL + "/usuario/vacina";
-            this.datajson = {
-                id_vacina: this.vacina,
-                data_vacina: this.data,
-                lote: this.lote,
-            };
-            console.log(this.datajson);
-            this.http
-                .post(url, this.datajson, { headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({ 'token': this.token.token }) })
-                .subscribe(function (res) {
-                if (res['Mensagem'] == 'Erro ao cadastrar vacina!') {
-                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                }
-                else {
-                    _this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present();
-                    _this.navCtrl.setRoot(_this.navCtrl.getActive().component);
-                }
-            });
-        }
-    };
-    VacinasPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad VacinasPage');
-    };
-    VacinasPage = __decorate([
+    CidadeModalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-vacinas',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/vacinas/vacinas.html"*/'<!--\n  Generated template for the VacinasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>vacinas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/vacinas/vacinas.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_4__perfil_profile_services__["a" /* profileService */], __WEBPACK_IMPORTED_MODULE_5__vacinas_vacina_services__["a" /* VacinaService */]],
+            selector: 'page-cidade-modal',template:/*ion-inline-start:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/cidade-modal/cidade-modal.html"*/'<!--\n  Generated template for the CidadeModalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<style>\n  @font-face {\n    font-family: Souliyo-Unicode;\n    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)\n  }\n  ion-content{\n    font-family: \'Souliyo-Unicode\', sans-serif;\n    background-color: #97D9DB;\n    height: 618px;\n    top: 49px\n  }\n  body{\n    height: 93%;\n    width: 93%;\n    border-radius: 5px;\n    top: 3%;\n    left: 4%;\n    background-color: white;\n  }\n  h1{\n    color: #47525E;\n    text-align: center;\n    font-size: 18px;\n    font-weight: 900;\n    text-transform: uppercase;\n  }\n  .modal{\n    float: right;\n    color: black;\n    font-size: 20pt;\n    padding-top: 10px;\n    padding-right: 15px;\n  }\n  ion-list{\n    width: 100%;\n    background-color: #F6F5F5;\n  }\n  ion-label{\n    font-size: 12px;\n    text-transform: uppercase;\n    color: #47525E;\n  }\n  .letrinha{\n    font-size: 7px; color: #000000; margin-top: 0px;\n  }\n  .letrinha2{\n    font-size: 7px;\n    color: #47525E;\n    margin-top: 0;\n    text-transform: uppercase;\n  }\n  .sim-nao{\n    background-color: #F95F62;\n    border-radius: 4pt;\n    color: white;\n    text-transform: uppercase;\n    font-weight: 900;\n    width: 30pt;\n    height: 15pt;\n    font-size: 10px;\n    text-align: center;\n    padding-top: 4px;\n  }\n  .doenca{\n    background-color: #909090;\n    border-radius: 4pt;\n    color: white;\n    text-transform: uppercase;\n    font-weight: 900;\n    width: 40pt;\n    height: 15pt;\n    padding-top: 4px;\n    font-size: 10px;\n    text-align: center;\n    margin-bottom: 1px;\n  }\n  .colunas1{\n    background-color: #909090;\n    color: white;\n    font-weight: 900;\n    text-transform: uppercase;\n    padding-top: 3px;\n    height: 15pt;\n    font-size: 10px;\n    border-radius: 4pt;\n    text-align: center;\n  }\n  .colunas2{\n    background-color: #53D35B;\n    color: white;\n    font-weight: 900;\n    text-transform: uppercase;\n    height: 15pt;\n    font-size: 10px;\n    border-radius: 4pt;\n    margin-left: 10px;\n    text-align: center;\n    padding-top: 4px;\n    margin-bottom: 4px;\n    margin-right: 10px;\n  }\n  .dengue{\n    width: 40pt;\n  }\n  .leptospirose{\n    width: 70pt;\n  }\n  .linhas{\n    display: flex;\n    flex-direction: row;\n    width: 210px;\n  }\n  .linhas-2{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n  .paragrafo-doencas{\n    font-size: 10px;\n  }\n  .div-doencas{\n    display: flex;\n    flex-direction: column;\n    padding: 0px 25px;\n  }\n  .titulo-doencas-endemicas{\n    text-align: center;\n    font-weight: 900;\n    margin-bottom: 0;\n  }\n  .botoes-doencas-endemicas{\n    display: flex;\n    flex-direction: row;\n  }\n  .card-content-md{\n    border: 1px solid #53CED3;\n    padding: 6px;\n  }\n</style>\n\n<ion-content>\n\n<body>\n  <a class="modal" (click)="closeModal()"> X</a>\n\n  <h1>{{ nome_cidade }} - {{ uf_cidade }}</h1>\n\n    <div class="div-doencas">\n\n      <div class="linhas">\n        <ion-label class="">Vacinação obrigatória:</ion-label> \n        <p class="sim-nao">Não</p>\n      </div>\n\n      <div class="linhas">\n        <ion-label class="">Vacinação sugerida:</ion-label>\n        <div class="linhas-2">\n          <p class="doenca">Dengue</p>\n          <p class="letrinha">Pendente</p>\n        </div>\n      </div>\n\n\n      <div class="bloco-doencas">\n        <ion-label class="titulo-doencas-endemicas">Doenças endemicas da região</ion-label>\n\n        <div class="botoes-doencas-endemicas">\n          <p class="{{ propBtn1 }} dengue" (click) = \'showDengue()\'>Dengue</p>\n          <p class="{{ propBtn2 }} leptospirose" (click) = \'showLep()\'>Leptospirose</p>\n        </div>\n\n        <p class="letrinha2" [hidden] = hiddentxt>Clique na doença para ter mais informações</p>\n      </div>\n      \n      <ion-card  [hidden]= cardLep>\n        <ion-card-content>\n          <p class="paragrafo-doencas">\n            <b>Profilaxia e recomendações:</b> evite o contato com água ou lama de enchentes ou esgotos, ou qualquer outro que possa estar contaminado pela urina dos ratos. Procure o posto de saúde mais próximo em caso de suspeita de contaminação. <br><br>\n            <b>Sinais e sintomas:</b> o período de incubação da doença varia de 1 a 30 dias, sendo mais frequente entre 5 a 14 dias. <br><br>\n            <b>Fase precoce (leptospirêmica):</b> Febre abrupta; Dores de cabeça; Dores e desconforto nos músculos. <br><br>\n            <b>Fase tardia (fase imune):</b> Ictericia (pele amarelada ou alaranjada); Insuficiência renal; Hemorragia (principalmente pulmonar).\n          </p>\n        </ion-card-content>\n      </ion-card>\n\n      <ion-card  [hidden]= cardDengue>\n        <ion-card-content>\n          <p class="paragrafo-doencas">\n              A dengue é uma doença causada por um vírus e transmitida por um mosquito denominado Aedes aegypti, com 3 a 5 dias de incubação. <br><br>\n              <b>Profilaxia e recomendações:</b> uso de repelente é indispensável para evitar a doença, sendo alguns específicos para este. Deve-se tomar cuidado, principalmente, no verão. Evitar antitérmicos que contenham ácido acetilsalicílico e antiinflamatórios. Em caso de suspeita da doença, procure o posto médico mais próximo. <br> <br>\n              <b>Sinais e sintomas:</b> Febre alta; Cefaleia; Dor retroorbitária; Mialgia; Artralgia; Náuseas e vômitos; Diarreia; Exantema; Manifestações hemorrágicas.\n          </p>\n        </ion-card-content>\n      </ion-card>\n    </div>\n  \n</body>\n</ion-content>  '/*ion-inline-end:"/Users/victoria.rodovalho/Documents/Vacimaps/src/pages/cidade-modal/cidade-modal.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* ModalController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__perfil_profile_services__["a" /* profileService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__perfil_profile_services__["a" /* profileService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* App */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__vacinas_vacina_services__["a" /* VacinaService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__vacinas_vacina_services__["a" /* VacinaService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* ModalController */]) === "function" && _k || Object])
-    ], VacinasPage);
-    return VacinasPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+    ], CidadeModalPage);
+    return CidadeModalPage;
 }());
 
-//# sourceMappingURL=vacinas.js.map
+//# sourceMappingURL=cidade-modal.js.map
 
 /***/ })
 

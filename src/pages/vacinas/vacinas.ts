@@ -3,7 +3,7 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { IonicPage, NavController, NavParams, ToastController, App, ModalController } from 'ionic-angular';
 import { profileService, User } from '../perfil/profile.services';
-import { VacinaService,  } from '../vacinas/vacina.services';
+import { VacinaService } from '../vacinas/vacina.services';
 import { DashboardPage } from '../dashboard/dashboard';
 import { PerfilPage } from '../perfil/perfil';
 
@@ -36,19 +36,18 @@ export class VacinasPage {
   private API_URL = 'https://vacimaps-app.herokuapp.com'
 
   constructor(public navCtrl: NavController,
-    public vacinaModal : ModalController,
     private toast: ToastController, 
     private profileService: profileService,
     private http: HttpClient,
-    public appCtrl: App, 
+    private modalCtrl: ModalController,
     private VacinaService: VacinaService,
     private formBuilder: FormBuilder,
-    public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public appCtrl: App, 
+    public navParams: NavParams) {
       this.formulario = this.formBuilder.group({
         validarVacina: ['', Validators.required],
         validarData: ['', Validators.required],
-        vaidarLote: ['', Validators.required],
+        validarLote: ['', Validators.required],
       });
 
       this.profileService.getUser().subscribe((usuario: User) => {
@@ -70,6 +69,7 @@ export class VacinasPage {
 
   }
 
+  /* Funçōes para alterar as páginas */
   dash(){
     this.navCtrl.push(DashboardPage);
   }
@@ -78,6 +78,7 @@ export class VacinasPage {
     this.navCtrl.push(PerfilPage);
   }
 
+  /* Função que exibe as vacinas cadastradas pelo usuario */
   getVacinas(){
     this.profileService.getUser().subscribe((usuario: User) => {
       
@@ -89,11 +90,26 @@ export class VacinasPage {
 
      });
   }
-  
-  initializeItems() {
-    this.vacinas = this.user_vacinas;
+
+  /* Função que abre o modal para adicionar/editar */
+  public ModalVacina () {
+    var modalPage = this.modalCtrl.create ('ModalNovasVacinasPage'); modalPage.present ();
+    //this.hiddenFormVacinas = false;
   }
 
+  /* Função que fecha o modal */
+    public closeModal(){
+    this.nome_vac = [];
+    this.data = "";
+    this.lote = '';    
+    this.id_usuario_vacina = ''; 
+    this.vacina = '';
+    this.hiddenFormVacinas = true;
+    this.hiddenCardVacinas = false;
+  
+  }
+
+  /* Função que deleta as vacinas cadastradas */
   doDELETE(vacina) {
     console.log("DELETE");
     let url = `${this.API_URL}/usuario/vacina/${vacina.id}`;
@@ -137,64 +153,21 @@ export class VacinasPage {
       })
     }
   }
+  
+  /* Função para editar vacina */
+  editContact(vacina) {
+    console.log(vacina)
+    this.nome_vac = vacina.nome_vacina;
+    this.data = new Date(vacina.data_vacina).toISOString();
+    this.lote = vacina.local;    
+    this.id_usuario_vacina = vacina.id; 
+    this.vacina = vacina.id_vacina;
+    this.hiddenFormVacinas = false;
+    this.hiddenCardVacinas = true;
+  }
 
-  public closeModal(){
-    this.nome_vac = [];
-    this.data = "";
-    this.lote = '';    
-    this.id_usuario_vacina = ''; 
-    this.vacina = '';
-    this.hiddenFormVacinas = true;
-    this.hiddenCardVacinas = false;
-
-  } 
-
-  doPOST() {
-    if(this.id_usuario_vacina){
-      console.log("PUT");
-      this.datajson ={ 
-        id_vacina: this.vacina, 
-        data_vacina: this.data, 
-        ds_local_vacina: this.lote,
-      }
-      let url = `${this.API_URL}/usuario/vacina/${this.id_usuario_vacina}`;
-      this.http
-      .put(url, this.datajson, {headers: new HttpHeaders({'token': this.token.token})})
-      .subscribe(res => {
-        if(res['Mensagem'] == 'Vacina alterada com sucesso!'){          
-          this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()    
-          this.navCtrl.setRoot(this.navCtrl.getActive().component);
-        }else {
-          this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()     
-          
-
-
-        }
-      })  
-        
-    }else{
-    console.log("POST");
-    let url = `${this.API_URL}/usuario/vacina`;
-    this.datajson ={ 
-      id_vacina: this.vacina, 
-      data_vacina: this.data, 
-      lote: this.lote,
-    }
-    console.log(this.datajson);
-    this.http
-      .post(url, this.datajson, {headers: new HttpHeaders({'token': this.token.token})})
-      .subscribe(res => {
-        if(res['Mensagem'] == 'Erro ao cadastrar vacina!'){          
-          this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()    
-       
-        }else {
-          this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()     
-          this.navCtrl.setRoot(this.navCtrl.getActive().component);
-
-
-        }
-      })   
-    }    
+  initializeItems() {
+    this.vacinas = this.user_vacinas;
   }
 
   ionViewDidLoad() {

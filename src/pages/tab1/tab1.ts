@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Searchbar } from 'ionic-angular';
-import { Tab1Service, City } from './tab1.services';
+import { DashboardService } from '../dashboard/dashboard.services';
 import { profileService, User } from '../perfil/profile.services';
-import { Tab2Page } from '../tab2/tab2';
-import { ModalPage } from '../modal/modal';
 
 @IonicPage()
 @Component({
   selector: 'page-tab1',
   templateUrl: 'tab1.html',
-  providers: [Tab1Service, profileService]
+  providers: [DashboardService, profileService]
 })
 
 export class Tab1Page {
@@ -24,7 +22,7 @@ export class Tab1Page {
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     private Tab1Service: Tab1Service,
+     private Tab1Service: DashboardService,
      public cityModal : ModalController,
      private profileService: profileService) {   
       this.profileService.getUser().subscribe((usuario: User) => {

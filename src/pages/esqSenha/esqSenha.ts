@@ -1,9 +1,9 @@
 import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
 import { CadastroPage } from '../cadastro/cadastro';
-import { IonicPage, NavController, NavParams, ToastController,App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { VerifyCodePage } from '../verify-code/verify-code';
 
 @IonicPage()

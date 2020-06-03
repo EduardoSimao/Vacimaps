@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams,ToastController, App, ModalControll
 import { profileService, User } from './profile.services';
 import { HomePage } from '../home/home';
 import { DashboardPage } from '../dashboard/dashboard';
-import { Tab2Page } from '../tab2/tab2';
+import { VacinasPage } from '../vacinas/vacinas';
 import { ConfiguracoesPage } from '../configuracoes/configuracoes';
 
 
@@ -43,7 +43,7 @@ export class PerfilPage {
   }
 
   vacinas(){
-    this.navCtrl.push(Tab2Page);
+    this.navCtrl.push(VacinasPage);
   }
 
   alterar(){

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
-export class Tab1Service{
+export class DashboardService{
     private API_URL = 'https://vacimaps-app.herokuapp.com'
     token;
 

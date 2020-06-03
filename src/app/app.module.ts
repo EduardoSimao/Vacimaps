@@ -15,6 +15,10 @@ import { Tab1PageModule } from '../pages/tab1/tab1.module';
 import { Tab2PageModule } from '../pages/tab2/tab2.module';
 import { PopoverPageModule } from '../pages/popover/popover.module'; 
 import { ModalPageModule } from '../pages/modal/modal.module';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
+import { VacinasPageModule } from '../pages/vacinas/vacinas.module';
+import { ModalNovasVacinasPageModule } from '../pages/modal-novas-vacinas/modal-novas-vacinas.module';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { ModalPageModule } from '../pages/modal/modal.module';
     Tab1PageModule,
     Tab2PageModule,
     PopoverPageModule,
-    ModalPageModule
+    ModalPageModule,
+    PerfilPageModule,
+    VacinasPageModule,
+    ModalNovasVacinasPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
