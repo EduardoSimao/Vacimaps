@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController, ModalController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { VacinaService } from '../vacinas/vacina.services';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -16,6 +17,7 @@ export class ModalNovasVacinasPage {
   hiddenVacinas: Boolean;
   hiddenCardVacinas: Boolean;
   hiddenFormVacinas: Boolean;
+  private formulario: FormGroup;
 
   vacina: string;
   vacinaSelect: any;
@@ -33,7 +35,13 @@ export class ModalNovasVacinasPage {
     public viewCtrl : ViewController,
     public modalController: ModalController,
     private toast: ToastController, 
+    private formBuilder: FormBuilder,
     private http: HttpClient) {
+      this.formulario = this.formBuilder.group({
+        validarVacina: ['', Validators.required],
+        validarData: ['', Validators.required],
+        vaidarLote: ['', Validators.required],
+      });
   }
 
   ionViewDidLoad() {
