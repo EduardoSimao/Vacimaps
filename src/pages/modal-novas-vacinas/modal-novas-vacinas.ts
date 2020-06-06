@@ -35,6 +35,7 @@ export class ModalNovasVacinasPage {
     public viewCtrl : ViewController,
     public modalController: ModalController,
     private toast: ToastController, 
+    private VacinaService: VacinaService,
     private formBuilder: FormBuilder,
     private http: HttpClient) {
       this.formulario = this.formBuilder.group({
@@ -42,6 +43,12 @@ export class ModalNovasVacinasPage {
         validarData: ['', Validators.required],
         vaidarLote: ['', Validators.required],
       });
+
+      this.VacinaService.getVacinas().subscribe((vacinas) => {
+        this.vacinaSelect = vacinas;
+        this.nome_vac = this.vacinaSelect;
+      });
+  
   }
 
   ionViewDidLoad() {

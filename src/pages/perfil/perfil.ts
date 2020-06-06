@@ -18,6 +18,7 @@ export class PerfilPage {
   token;
   usuario: User;
   nome: String;
+  email: String;
   dt_nascimento;
   datajson;
   private API_URL = 'https://vacimaps-app.herokuapp.com'
@@ -33,6 +34,7 @@ export class PerfilPage {
       this.profileService.getUser().subscribe((usuario: User) => {
         this.usuario = usuario;
         this.nome = usuario.nome;
+        this.email = usuario.email;
         this.dt_nascimento = new Date(usuario.dt_nascimento).toISOString();
   });
   this.token = JSON.parse(localStorage.getItem('token'));
