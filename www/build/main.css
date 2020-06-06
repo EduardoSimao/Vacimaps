@@ -25992,6 +25992,7 @@ page-configuracoes .titulo-pagina {
   letter-spacing: 0.5px;
   margin-top: 43px;
   margin-left: 2px;
+  text-transform: uppercase;
 }
 
 page-configuracoes img {
@@ -26020,22 +26021,22 @@ page-configuracoes #div-config {
   width: 104%;
   height: 38%;
   margin-top: 27px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+  -webkit-box-align: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
 }
 
-page-configuracoes p {
+page-configuracoes .label-home {
   font-weight: 600;
   font-size: 12px;
   color: #47525E;
@@ -26044,78 +26045,16 @@ page-configuracoes p {
   padding-left: 20px;
 }
 
-page-configuracoes #perfil {
-  padding-top: 5px;
-  padding-left: 19px;
-}
-
-page-configuracoes #senha {
-  margin-top: -14px;
-}
-
-page-configuracoes button {
-  width: 110px;
-  height: 47px;
-  font-weight: 900;
-  border-radius: 50pt;
-  font-family: roboto;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-
-page-configuracoes .botao-salvar {
-  background-color: #53CED3;
-  color: black;
-  margin-top: 50px;
-}
-
-page-configuracoes .botao-cancelar {
-  color: white;
-  background-color: #53D35B;
-  margin-top: 26px;
-  width: 100px;
-  height: 40px;
-}
-
-page-configuracoes .label-home {
-  font-weight: 900;
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-bottom: 1px;
-  margin-right: 243px;
-  color: #47525E;
-}
-
-page-configuracoes ion-icon {
-  font-size: 160px;
-  vertical-align: auto;
-}
-
-page-configuracoes a {
-  color: gray;
-}
-
 page-configuracoes ion-item {
-  border: 1px solid #53CED3;
-  border-radius: 50pt;
-  width: 200pt;
-  height: 30pt;
-  background-color: rgba(233, 233, 233, 0.62);
-}
-
-page-configuracoes .input-email {
-  text-align: center;
-  font-size: 12px;
-  color: #E7E6E6;
-  top: -23px;
-  padding: 2px;
-  width: 104%;
-  left: -7px;
-  margin-top: 17px;
+  border: 1px solid #53CED3 !important;
+  border-radius: 50pt !important;
+  width: 200pt !important;
+  height: 30pt !important;
+  background-color: rgba(233, 233, 233, 0.62) !important;
 }
 
 page-configuracoes .campos {
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 page-configuracoes .botoes {
@@ -26132,6 +26071,30 @@ page-configuracoes .botoes {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  font-weight: 900;
+  font-family: roboto;
+  font-size: 15px;
+  text-transform: uppercase;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-configuracoes .botao-salvar {
+  background-color: #53CED3;
+  color: black;
+  margin-top: 50px;
+  width: 110px;
+  height: 47px;
+  border-radius: 50pt !important;
+}
+
+page-configuracoes .botao-cancelar {
+  color: white;
+  background-color: #53D35B;
+  margin-top: 26px;
+  width: 100px;
+  height: 40px;
+  border-radius: 50pt !important;
 }
 
 @font-face {
@@ -26645,8 +26608,8 @@ page-perfil body {
 
 page-perfil ion-card {
   height: 100%;
-  width: 100%;
-  margin-left: 0;
+  width: 100% !important;
+  margin-left: 0 !important;
 }
 
 page-perfil ion-card-content {

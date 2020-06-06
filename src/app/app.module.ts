@@ -18,6 +18,7 @@ import { ModalPageModule } from '../pages/modal/modal.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 import { VacinasPageModule } from '../pages/vacinas/vacinas.module';
 import { ModalNovasVacinasPageModule } from '../pages/modal-novas-vacinas/modal-novas-vacinas.module';
+import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ModalNovasVacinasPageModule } from '../pages/modal-novas-vacinas/modal-
     ModalPageModule,
     PerfilPageModule,
     VacinasPageModule,
-    ModalNovasVacinasPageModule
+    ModalNovasVacinasPageModule,
+    ConfiguracoesPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

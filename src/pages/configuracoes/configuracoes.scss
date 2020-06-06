@@ -17,6 +17,7 @@ page-configuracoes {
         letter-spacing: 0.5px;
         margin-top: 43px;
         margin-left: 2px;
+        text-transform: uppercase;
     }
     img{
         width: 35px;
@@ -32,11 +33,11 @@ page-configuracoes {
         width: 104%;
         height: 38%;
         margin-top: 27px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
-    p{
+    .label-home{
         font-weight: 600;
         font-size: 12px;
         color: #47525E;
@@ -44,26 +45,33 @@ page-configuracoes {
         text-transform: uppercase;
         padding-left: 20px;
     }
-    #perfil{
-        padding-top: 5px;
-        padding-left: 19px;
+    ion-item{
+        border: 1px solid #53CED3 !important;
+        border-radius: 50pt !important;
+        width: 200pt !important;
+        height: 30pt !important;
+        background-color: rgba(233, 233, 233, 0.62) !important;
     }
-    #senha{
-        margin-top: -14px;
+    .campos{
+        margin-bottom: 20px;
     }
-    button{
-        width: 110px;
-        height: 47px;
+    .botoes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         font-weight: 900;
-        border-radius: 50pt;
         font-family: roboto;
         font-size: 15px;
         text-transform: uppercase;
+        box-shadow: none !important;
     }
     .botao-salvar{
         background-color: #53CED3;
         color: black;
         margin-top: 50px;
+        width: 110px;
+        height: 47px;
+        border-radius: 50pt !important;
     }
     .botao-cancelar{
         color: white;
@@ -71,38 +79,6 @@ page-configuracoes {
         margin-top: 26px;
         width: 100px;
         height: 40px;
-    }
-    .label-home{
-        font-weight: 900;
-        font-size: 12px;
-        text-transform: uppercase;
-        margin-bottom: 1px;
-        margin-right: 243px;
-        color: #47525E;
-    }
-    ion-icon {
-        font-size: 160px; 
-        vertical-align: auto;
-    }
-    a{
-        color: gray;
-    }
-    ion-item{
-        border: 1px solid #53CED3;
-        border-radius: 50pt;
-        width: 200pt;
-        height: 30pt;
-        background-color: rgba(233, 233, 233, 0.62);
-    }
-    .input-email{
-        text-align: center; font-size: 12px; color: #E7E6E6; top: -23px; padding: 2px; width: 104%; left: -7px; margin-top: 17px;
-    }
-    .campos{
-        margin-bottom: 36px;
-    }
-    .botoes{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        border-radius: 50pt !important;
     }
 }
