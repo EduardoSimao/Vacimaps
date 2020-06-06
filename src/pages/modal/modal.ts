@@ -18,6 +18,7 @@ export class ModalPage {
   token;
   usuario: User;
   nome: String;
+  email: String;
   dt_nascimento;
   datajson;
   private API_URL = 'https://vacimaps-app.herokuapp.com'
