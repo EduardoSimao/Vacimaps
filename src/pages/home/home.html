@@ -1,132 +1,29 @@
-<style>
-  @font-face {
-    font-family: Souliyo-Unicode;
-    src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
-  }
-  ion-content{
-    font-family: 'Souliyo-Unicode', sans-serif;
-    background: white;
-  }
-  h1{
-    color: #47525E;
-    text-align: center;
-    font-size: 16pt;
-    font-weight: 900;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.5px;
-    margin-top: -5px;
-  }
-  ion-item{
-    border: 1px solid #53CED3;
-    border-radius: 50pt;
-    width: 100%;
-    height: 30pt;
-    background-color: rgba(233, 233, 233, 0.62);
-  }
-  input::placeholder{
-    width: 270px; text-align: center; color: white; font-size: 12px;
-  }
-  button{
-    width: 110px;
-    height: 47px;
-    background-color: #53CED3 !important;
-    color: black;
-    font-weight: 900;
-    margin-top: 25px;
-    border-radius: 50pt;
-    font-family: roboto;
-    font-size: 15px;
-    text-transform: uppercase;
-  }
-  .btn-others{
-    color: #47525E;
-    font-size: 10px;
-    cursor: pointer;
-    flex-direction: column;
-    text-align: center;
-    margin-left: 33px;
-    width: 100px;
-    height: 40px;
-  }
-  .botao-novo{
-    margin-left: 65px;
-  }
-  p {
-    color: #ea6153;
-    display: none;
-  }
-  input:invalid + p {
-    display: inline
-  }
-  .div-home{
-    margin-top: 8%;
-    display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-  }
-  ion-list.list.list-md {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .label-home {
-    font-size: 10pt;
-    text-transform: uppercase;
-    margin-bottom: 1px;
-    margin-right: 240px;
-  }
-  .input-cover {
-    border: 1px solid #53CED3;
-    border-radius: 50pt;
-    width: 176pt;
-    height: 30pt;
-    background-color: rgba(233, 233, 233, 0.62);
-  }
-  .senha{
-    margin-top: 17px;
-  }
-  img{
-    width: 100px;
-    height: auto;
-    margin-top: 24%;
-  }
-  .primeira-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
-
-
 <ion-content>
-<body>
-  <div class="primeira-div">
-    <img src="assets/imgs/logo.png">
-    <h1>VACIMAPS</h1>
-  </div>
-  <form [formGroup]="formulario">
-    <ion-list inset>
-        <p>Usuário ou senha inválida!</p>
-      <ion-label class="label-home">E-mail</ion-label>
-      <ion-item>
-        <ion-input type="email" maxlength="75" [formControl]="formulario.controls['validEmail']" [(ngModel)]="email"></ion-input>
-      </ion-item>
-    
-      <ion-label class="label-home senha">Senha</ion-label>
-      <ion-item>
-        <ion-input type="password" maxlength="20" [formControl]="formulario.controls['vaidSenha']" [(ngModel)]="senha"></ion-input>
-      </ion-item>
+  <body>
+    <div class="primeira-div">
+      <img src="assets/imgs/logo.png">
+      <h1 class="titulo-pagina">VACIMAPS</h1>
+    </div>
+    <form [formGroup]="formulario">
+      <ion-list inset>
+          <p>Usuário ou senha inválida!</p>
+        <ion-label class="label-home">E-mail</ion-label>
+        <ion-item>
+          <ion-input type="email" maxlength="75" [formControl]="formulario.controls['validEmail']" [(ngModel)]="email"></ion-input>
+        </ion-item>
+      
+        <ion-label class="label-home senha">Senha</ion-label>
+        <ion-item>
+          <ion-input type="password" maxlength="20" [formControl]="formulario.controls['vaidSenha']" [(ngModel)]="senha"></ion-input>
+        </ion-item>
 
-      <button (click)='login()' [disabled]="!formulario.valid">Entrar</button>
-    </ion-list>
-  </form>
-  <div class="div-home">
-    <a class="botao-esqueci btn-others" (click)="esqSenha()">Esqueci minha senha</a>
-    <a class="botao-novo btn-others" (click)="cadastrar()">Novo por aqui?</a>
-  </div>
-</body>
+        <button (click)='login()' [disabled]="!formulario.valid">Entrar</button>
+      </ion-list>
+    </form>
+    <div class="div-home">
+      <a class="botao-esqueci btn-others" (click)="esqSenha()">Esqueci minha senha</a>
+      <a class="botao-novo btn-others" (click)="cadastrar()">Novo por aqui?</a>
+    </div>
+  </body>
 </ion-content> 
 

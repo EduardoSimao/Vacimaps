@@ -1,49 +1,20 @@
-<style>
-  @font-face {
-     font-family: Souliyo-Regular;
-     src: url(../www/assets/fonts/Souliyo-Regular.ttf)
-   }
- 
-   ion-content{
-      font-family: 'Souliyo-Unicode', sans-serif;
-      background: url("assets/imgs/globo.png") no-repeat;
-      background-position: center;
-      background-size: cover;
-   }
-   h1{
-      color: white; padding: 58px 25px 115px 25px; text-align: center; font-size: 40px; font-weight: 100; font-style: normal; line-height: normal;
-      letter-spacing: 0.5px;
-   }
-   p{
-    color: white; text-align: center; font-size: 12px; font-style: normal; line-height: normal;
-    letter-spacing: 0.9px;
-    font-family: roboto;
-   }
-   ion-item{
-    background-color: rgba(255, 255, 255, 0); color: white; align-content: center; width: 270px; margin-left: 30px;
-   }
-   input::placeholder{
-     text-align: center; color: white; font-size: 12px; font-size: 12px; width: 270px;
-   }
-   button{
-     width: 270px; height: 38px; color: #12614C; margin-left: 30px; margin-top: 20px; border-radius: 5px; font-family: roboto; font-size: 16px;
-   }
-   .btn-back{
-     color: white; font-size: 10px; padding-right: 225px; padding-top: 1px;
-   } 
- </style>
- 
- <ion-content>
-  <button ion-button clear class="btn-back" (click)="Voltar()"><< voltar</button>
-  <h1>VACIMAPS</h1>
+<ion-content>
+  <div class="primeira-div">
+    <img src="assets/imgs/logo.png">
+    <h1 class="titulo-pagina">VACIMAPS</h1>
+  </div>
   <form [formGroup]="formulario">
     <ion-list inset>
-        <ion-item>
-            <ion-input type="text" [(ngModel)]="codigo" [formControl]="formulario.controls['validCodigo']"  placeholder="Código"></ion-input>
-        </ion-item>
-        <p>Insira o codigo recebido para realizar a validação</p>
-        <br>
-        <button color="light" (click)="validar_token()" [disabled]="!formulario.valid">Validar</button>
+      <p>Insira o codigo recebido para realizar a validação.</p>
+      <ion-label>Código</ion-label>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="codigo" [formControl]="formulario.controls['validCodigo']"></ion-input>
+      </ion-item>
+      <br>
+      <div class="botoes-final">
+        <button (click)="validar_token()" [disabled]="!formulario.valid" class="botao-validar">Validar</button>
+        <button ion-button clear class="botao-voltar" (click)="Voltar()">Voltar</button>
+      </div>
     </ion-list>
   </form>
  </ion-content>

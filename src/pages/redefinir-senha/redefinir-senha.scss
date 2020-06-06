@@ -1,3 +1,64 @@
 page-redefinir-senha {
-
+    @font-face {
+        font-family: Souliyo-Unicode;
+        src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
+    }
+    ion-content{
+        font-family: 'Souliyo-Unicode', sans-serif;
+        background-color:  white;
+    }
+    .titulo-pagina{
+        color: #47525E;
+        padding: 0px 25px 20px 25px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 900;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+    }
+    ion-label{
+        color: white; padding-bottom: 5px; font-family: roboto; letter-spacing: 0.5px; margin-left: 30px; 
+    }
+    .label-home{
+        font-weight: 900;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 1px;
+        margin-right: 243px;
+        color: #47525E;
+    }
+    ion-item{
+        border: 1px solid #53CED3;
+        border-radius: 50pt;
+        width: 200pt;
+        height: 30pt;
+        background-color: rgba(233, 233, 233, 0.62);
+    }
+    .botao-alterar{
+        width: 185px;
+        height: 38px;
+        color: #000000;
+        margin-left: 45px;
+        margin-top: 10px;
+        border-radius: 50pt;
+        font-family: roboto;
+        font-size: 15px;
+        text-transform: uppercase;
+        background-color: #53CED3;
+    }
+    .btn-voltar{
+        color: #fff;
+        margin-left: 81px;
+        margin-top: 10px;
+        border-radius: 50pt;
+        font-family: roboto;
+        font-size: 15px;
+        background-color: #53D35B;
+        width: 100px;
+        height: 40px;
+    }
+    .label-md{
+        margin: 13px 8px 0px 14px;
+    }
 }

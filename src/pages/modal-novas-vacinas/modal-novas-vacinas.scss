@@ -1,3 +1,81 @@
 page-modal-novas-vacinas {
+    @font-face {
+        font-family: Souliyo-Unicode;
+        src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
+    }
+    .card-nv-vacina{
+        background: #97D9DB;
+        border-radius: 3px;
+        box-shadow: none !important;
+        padding: 40px 15px;
+        margin-top: 110px;
+    }
 
+    .select-icon{
+        display: none !important;
+    }
+
+    .componentes{
+        margin-bottom: 25px;
+    }
+    .nomes-inputs{
+        font-weight: 550;
+        color: #47525E;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin: 9px 8px 0px 16px;;
+    }
+    .inputs-vacinas{
+        border: 1px solid #02AEB4;
+        border-radius: 50pt;
+        background-color: #DBDBDB;
+    }
+    .item-md{
+        background-color: #DBDBDB;
+        border-radius: 50pt;
+        border: 1px solid #02AEB4;
+    }
+    .text-input-md{
+        margin: 5px 8px;
+        padding: 9px 8px 9px 12px;
+        font-size: 15px;
+    }
+    .content-md{
+        background-color: rgba(66, 66, 66, 0.73);
+    }
+    .datetime-md{
+        padding: 9px 8px 9px 16px;
+    }
+    .botoes-final{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .botao-salvar{
+        width: 110px;
+        height: 47px;
+        color: white;
+        border-radius: 50pt;
+        font-family: roboto;
+        font-size: 15px;
+        text-transform: uppercase;
+        background-color: #53D35B;
+        margin-top: 40px;
+        font-weight: bolder;
+    }
+    .botao-cancelar{
+        width: 100px;
+        height: 37px;
+        color: #97D9DB;
+        margin-top: 20px;
+        border-radius: 50pt;
+        font-family: roboto;
+        font-size: 15px;
+        font-weight: 600;
+        background-color: white;
+        margin-bottom: 24px;
+    }
+    .scroll-content {
+        padding-bottom: 0 !important;
+    }
 }

@@ -1,3 +1,67 @@
 page-dashboard {
-
+    @font-face {
+        font-family: Souliyo-Unicode;
+        src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
+    }
+    ion-content{
+        font-family: 'Souliyo-Unicode', sans-serif;
+        background-color: #97D9DB !important;
+    }
+    ion-header{
+        background-color: white;
+        background-size: cover;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+    }
+    .menu{
+        background: transparent;
+        box-shadow: none;
+        height: 49px;
+    }
+    #label-menu{
+        font-size: 11px;
+        text-transform: capitalize;
+        margin-left: -8px;
+        color: #FFFFFF;
+    }
+    h1{
+        padding-top: 50px;
+    }
+    ion-img{
+        width: 100%;
+        height: 65%;
+        position: relative;
+        top: 143px;
+        background: transparent;
+    }
+    p{
+        font-size: 9px;
+        color: #FFFFFF;
+        margin-left: 7px;
+        margin-top: 15px;
+    }
+    .list-md {
+        position: absolute;
+        z-index: 10;
+        margin-top: 50px;
+        width: 95%;
+        left: 10px;
+        border: 1px solid rgba(71, 82, 94, 0.13);
+        border-top: none;
+    }
+    .item-md{
+        font-weight: 600 !important;
+        color: #53CED3 !important;
+        padding-right: 16px !important;
+    }
+    .searchbar-input{
+        padding: 6px 42px;
+        border-radius: 50pt !important;
+        font-size: 12px !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #53CED3;
+    }
 }

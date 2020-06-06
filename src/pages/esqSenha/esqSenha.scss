@@ -1,3 +1,97 @@
 page-esqSenha {
-
+    @font-face {
+        font-family: Souliyo-Unicode;
+        src: url(../www/assets/fonts/Souliyo-Unicode.ttf)
+    }
+    ion-content{
+        font-family: 'Souliyo-Unicode', sans-serif;
+        background-color:  white;
+    }
+    .titulo-pagina{
+        color: #47525E;
+        text-align: center;
+        font-size: 12pt;
+        font-weight: 900;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        margin-top: 43px;
+        margin-left: 2px;
+    }
+    img{
+        width: 35px;
+        height: 32px;
+        margin-top: 10%;
+    }
+    .primeira-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .sub-titulo{
+        text-align: center;
+        margin-top: 29px;
+        color: #47525E;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+    p{
+        color: #47525E;
+        text-align: center;
+        font-size: 10px;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.9px;
+        font-family: roboto;
+        margin-bottom: -7px;
+        margin-top: 28px;
+    }
+    ion-item{
+        border: 1px solid #53CED3 !important;
+        border-radius: 50pt !important;
+        width: 100% !important;
+        height: 30pt !important;
+        background-color: rgba(233, 233, 233, 0.62) !important;
+    }
+    .label-home{
+        font-weight: 900;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #47525E;
+        margin-top: 55px !important;
+        margin-bottom: 0px !important;
+        margin-left: 22px !important;
+    }
+    .botoes-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .botao-enviar{
+        width: 110px;
+        height: 47px;
+        color: #000000;
+        margin-top: 22px;
+        border-radius: 50pt;
+        font-family: roboto;
+        font-size: 15px;
+        text-transform: uppercase;
+        background-color: #53CED3;
+    }
+    .botao-voltar{
+        width: 100px;
+        height: 40px;
+        color: #fff;
+        margin-top: 26px;
+        border-radius: 50pt;
+        font-family: roboto;
+        font-size: 15px;
+        background-color: #53D35B;
+    }
+    .list-md{
+        margin-top: 60px !important;
+    }
+    .scroll-content{
+        padding-bottom: 0 !important;
+    }
 }
