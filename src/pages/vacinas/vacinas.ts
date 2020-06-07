@@ -93,7 +93,10 @@ export class VacinasPage {
 
   /* Função que abre o modal para adicionar/editar */
   public ModalVacina () {
-    var modalPage = this.modalCtrl.create ('ModalNovasVacinasPage'); modalPage.present ();
+    var modalPage = this.modalCtrl.create ('ModalNovasVacinasPage'); 
+    modalPage.onDidDismiss(() => {
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    });modalPage.present ();
     //this.hiddenFormVacinas = false;
   }
 

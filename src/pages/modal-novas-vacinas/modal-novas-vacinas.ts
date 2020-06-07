@@ -48,6 +48,8 @@ export class ModalNovasVacinasPage {
         this.vacinaSelect = vacinas;
         this.nome_vac = this.vacinaSelect;
       });
+
+      this.token = JSON.parse(localStorage.getItem('token'));
   
   }
 
@@ -104,7 +106,7 @@ export class ModalNovasVacinasPage {
        
         }else {
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()     
-          this.navCtrl.setRoot(this.navCtrl.getActive().component);
+          this.navCtrl.pop();
         }
       })   
     }    
