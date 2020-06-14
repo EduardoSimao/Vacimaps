@@ -13,11 +13,7 @@
         </button>
       </ion-list> 
 
-      <button class="menu" (click)="perfil()" ion-button>
-        <ion-avatar style="font-size: 30px; color: black;">
-          <ion-icon name="ios-contact"></ion-icon>
-        </ion-avatar>
-      </button>
+      <img class="imagem-header" (click)="perfil()" src="../../assets/imgs/foto-header.jpg">
   </ion-header>
 
   <ion-grid>
@@ -46,8 +42,8 @@
                 <button class="botao-editar" ion-button icon-left clear small (click)="editContact(vacina);">
                   <ion-icon class="icone-editar" name="md-create"></ion-icon>
                 </button>
-                <button class="btn-2" ion-button icon-left clear small (click)="doDELETE(vacina);">
-                  <ion-icon class="icon-btn" name="ios-trash"></ion-icon>
+                <button class="botao-excluir" ion-button icon-left clear small (click)="doDELETE(vacina);">
+                  <ion-icon class="icone-excluir" name="ios-trash"></ion-icon>
                 </button>
               </ion-col>
             </ion-row>
