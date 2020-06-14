@@ -6,8 +6,8 @@
       <div class="vacinas componentes">
         <ion-label class="nomes-inputs">Nome da Vacina:</ion-label>
         <ion-item>
-          <ion-select [formControl]="formulario.controls['validarVacina']" [(ngModel)]="vacina" disabled="disabled">
-            <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>
+          <ion-select [formControl]="formulario.controls['validarVacina']" [(ngModel)]="id_vacina" disabled="disabled" >
+            <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" [selected]="c.id_vacina == id_vacina">{{ c.nome_vacina }}</ion-option>
           </ion-select>
         </ion-item>
       </div>

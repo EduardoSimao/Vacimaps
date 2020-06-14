@@ -93,7 +93,11 @@ export class VacinasPage {
 
   /* Função que abre o modal para adicionar/editar */
   public ModalVacina () {
-    var modalPage = this.modalCtrl.create ('ModalNovasVacinasPage'); 
+    var modalPage = this.modalCtrl.create ('ModalNovasVacinasPage',{'nome_vacina': "", 
+    'data_vacina': "", 
+    'lote': "", 
+    'id_usuario_vacina': ""});
+    
     modalPage.onDidDismiss(() => {
       this.navCtrl.setRoot(this.navCtrl.getActive().component);
     });modalPage.present ();
@@ -160,13 +164,19 @@ export class VacinasPage {
   /* Função para editar vacina */
   editContact(vacina) {
     console.log(vacina)
-    this.nome_vac = vacina.nome_vacina;
     this.data = new Date(vacina.data_vacina).toISOString();
     this.lote = vacina.local;    
     this.id_usuario_vacina = vacina.id; 
-    this.vacina = vacina.id_vacina;
-    this.hiddenFormVacinas = false;
-    this.hiddenCardVacinas = true;
+    var modalPage = this.modalCtrl.create ('ModalNovasVacinasPage',
+    {'nome_vacina': vacina.vacina, 
+    'data_vacina': this.data, 
+    'lote': this.lote, 
+    'id_vacina': vacina.id_vacina, 
+    'id_usuario_vacina': this.id_usuario_vacina}); 
+    
+    modalPage.onDidDismiss(() => {
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    });modalPage.present ();
   }
 
   initializeItems() {

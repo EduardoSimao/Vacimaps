@@ -19,7 +19,7 @@ export class ModalNovasVacinasPage {
   hiddenFormVacinas: Boolean;
   private formulario: FormGroup;
 
-  vacina: string;
+  id_vacina: string;
   vacinaSelect: any;
   data: string;
   lote: string;
@@ -49,6 +49,13 @@ export class ModalNovasVacinasPage {
         this.nome_vac = this.vacinaSelect;
       });
 
+      this.id_usuario_vacina = navParams.get('id_usuario_vacina');
+      this.id_vacina = navParams.get('id_usuario_vacina');
+      this.lote = navParams.get('lote');
+      this.nome_vac = navParams.get('nome_vacina');
+      this.id_vacina = navParams.get('id_vacina');
+      this.data = navParams.get('data_vacina');
+
       this.token = JSON.parse(localStorage.getItem('token'));
   
   }
@@ -59,13 +66,7 @@ export class ModalNovasVacinasPage {
 
 /* Função que fecha modal */
   public closeModal(){
-    this.nome_vac = [];
-    this.data = "";
-    this.lote = '';    
-    this.id_usuario_vacina = ''; 
-    this.vacina = '';
-    this.hiddenFormVacinas = true;
-    this.hiddenCardVacinas = false;
+    this.navCtrl.pop();
   } 
 
   /* Função que edita vacinas */
@@ -73,7 +74,7 @@ export class ModalNovasVacinasPage {
     if(this.id_usuario_vacina){
       console.log("PUT");
       this.datajson ={ 
-        id_vacina: this.vacina, 
+        id_vacina: this.id_vacina, 
         data_vacina: this.data, 
         ds_local_vacina: this.lote,
       }
@@ -83,7 +84,7 @@ export class ModalNovasVacinasPage {
       .subscribe(res => {
         if(res['Mensagem'] == 'Vacina alterada com sucesso!'){          
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()    
-          this.navCtrl.setRoot(this.navCtrl.getActive().component);
+          this.navCtrl.pop();
         }else {
           this.toast.create({ message: res["Mensagem"], duration: 3000, position: 'botton' }).present()     
         }
@@ -93,7 +94,7 @@ export class ModalNovasVacinasPage {
     console.log("POST");
     let url = `${this.API_URL}/usuario/vacina`;
     this.datajson ={ 
-      id_vacina: this.vacina, 
+      id_vacina: this.id_vacina, 
       data_vacina: this.data, 
       lote: this.lote,
     }
