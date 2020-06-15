@@ -6,7 +6,7 @@
       </ion-avatar>
     </button>
 
-    <ion-searchbar placeholder="Digite o nome da vacina" (ionInput)="getCity($event)" #searchQuery></ion-searchbar>
+    <ion-searchbar placeholder="Digite o nome da vacina" (ionInput)="getVacina($event)" #searchQuery></ion-searchbar>
       <ion-list [hidden]= hiddenCidades>
         <button (click)="something(c)" ion-item *ngFor="let c of cidades">
           <ion-option *ngFor="let c of vacinaSelect" [value] = "c.id_vacina" >{{ c.nome_vacina }}</ion-option>
