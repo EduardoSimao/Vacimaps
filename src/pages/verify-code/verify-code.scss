@@ -7,6 +7,12 @@ page-verify-code {
         font-family: 'Souliyo-Unicode', sans-serif;
         background: url("assets/imgs/globo.png") no-repeat;
     }
+    .primeira-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 80px;
+    }
     img{
         width: 35px;
         height: 32px;
@@ -15,7 +21,7 @@ page-verify-code {
     .titulo-pagina{
         color: #47525E;
         text-align: center;
-        font-size: 12pt;
+        font-size: 16pt;
         font-weight: 900;
         font-style: normal;
         line-height: normal;
@@ -39,6 +45,7 @@ page-verify-code {
         text-transform: uppercase;
         font-size: 12px;
         font-weight: 900;
+        margin: 0 20px!important;
     }
     ion-item{
         border: 1px solid #53CED3 !important;

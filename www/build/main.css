@@ -25709,6 +25709,7 @@ page-cadastro .botao-cadastrar {
   font-size: 15px;
   text-transform: uppercase;
   background-color: #53CED3;
+  font-weight: 900;
 }
 
 page-cadastro .botao-voltar {
@@ -26211,7 +26212,7 @@ page-dashboard .legenda {
   width: auto;
   height: 48px;
   position: absolute;
-  right: 10px;
+  left: 57px;
   top: 445px;
 }
 
@@ -27166,6 +27167,23 @@ page-verify-code ion-content {
   background: url("assets/imgs/globo.png") no-repeat;
 }
 
+page-verify-code .primeira-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
 page-verify-code img {
   width: 35px;
   height: 32px;
@@ -27175,7 +27193,7 @@ page-verify-code img {
 page-verify-code .titulo-pagina {
   color: #47525E;
   text-align: center;
-  font-size: 12pt;
+  font-size: 16pt;
   font-weight: 900;
   font-style: normal;
   line-height: normal;
@@ -27201,6 +27219,7 @@ page-verify-code ion-label {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 900;
+  margin: 0 20px !important;
 }
 
 page-verify-code ion-item {
