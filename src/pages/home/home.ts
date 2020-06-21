@@ -60,7 +60,7 @@ export class HomePage {
 
         }else{
           localStorage.setItem('token', JSON.stringify(res))
-          this.toast.create({ message: "Bem vindo!", duration: 3000, position: 'botton' }).present()    
+          // this.toast.create({ message: "Bem vindo!", duration: 3000, position: 'botton' }).present()    
           this.appCtrl.getRootNav().setRoot(DashboardPage)
         }
       })
